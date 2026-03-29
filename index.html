@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
+<style>   /* ─── JILIPOLLES BORRAR ─── */
   :root {
     --bg: #F7F5F0;
     --bg-2: #F0EDE6;
@@ -764,9 +764,9 @@
     margin-top: 48px;
   }
   .calendar-months {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
   .cal-month {
     background: var(--surface);
@@ -1195,7 +1195,7 @@
     .faculty-grid { grid-template-columns: 1fr; }
     .format-grid { grid-template-columns: repeat(2, 1fr); }
     .calendar-inner { grid-template-columns: 1fr; }
-    .calendar-months { flex-direction: column; }
+    .calendar-months { grid-template-columns: 1fr; }
     .calendar-sidebar { position: static; }
     .beca-inner { grid-template-columns: 1fr; }
     .beca-card { position: static; }
@@ -1240,7 +1240,7 @@
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="https://wa.me/34621192568?text=Hola%2C%20tengo%20preguntas%20sobre%20AMBIOTA%20Academy." class="btn btn-ghost" target="_blank">Contacto</a>
+      <a href="#" class="btn btn-ghost" >Contacto</a>
       <a href="#" class="btn btn-primary" >Solicitar Beca →</a>
     </div>
   </div>
@@ -1468,7 +1468,7 @@
           <div class="report-feature"><div class="report-feature-dot"></div>Recomendaciones integrables con el juicio clínico</div>
           <div class="report-feature"><div class="report-feature-dot"></div>Panel de patógenos, resistencias y seguridad multicapa</div>
         </div>
-        <a href="https://wa.me/34621192568?text=Hola%2C%20me%20gustar%C3%ADa%20ver%20una%20demo%20del%20nuevo%20informe%20cl%C3%ADnico%20de%20AMBIOTA." class="btn btn-outline-green" target="_blank">Reservar demo del nuevo informe →</a>
+        <a href="#" class="btn btn-outline-green" >Reservar demo del nuevo informe →</a>
       </div>
       <div class="report-visual">
         <div class="report-bar-label">Vista previa del informe clínico</div>
@@ -1669,129 +1669,91 @@
 <!-- CALENDAR -->
 <section class="section">
   <div class="container">
-    <div class="label">Formato · 18 sesiones en 6 meses</div>
-    <h2>Una sesión semanal de 1,5h.<br><em>De Abril a Septiembre 2026.</em></h2>
+    <div class="label">Calendario completo · 18 sesiones</div>
+    <h2>Abril a Septiembre 2026.<br><em>Un programa de 6 meses</em> construido sesión a sesión.</h2>
     <div class="calendar-inner">
-
-      <!-- VISUAL PRINCIPAL -->
       <div class="calendar-months">
 
-        <!-- Stats row -->
-        <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:2px; border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-bottom:28px;">
-          <div style="background:var(--surface); padding:22px 12px; text-align:center;">
-            <div style="font-family:'Instrument Serif',serif; font-size:40px; color:var(--green); line-height:1;">18</div>
-            <div style="font-size:11px; color:var(--text-3); margin-top:6px; line-height:1.5;">Sesiones<br>en directo</div>
-          </div>
-          <div style="background:var(--surface); padding:22px 12px; text-align:center;">
-            <div style="font-family:'Instrument Serif',serif; font-size:40px; color:var(--green); line-height:1;">6</div>
-            <div style="font-size:11px; color:var(--text-3); margin-top:6px; line-height:1.5;">Meses de<br>formación</div>
-          </div>
-          <div style="background:var(--surface); padding:22px 12px; text-align:center;">
-            <div style="font-family:'Instrument Serif',serif; font-size:40px; color:var(--green); line-height:1;">1,5h</div>
-            <div style="font-size:11px; color:var(--text-3); margin-top:6px; line-height:1.5;">Por sesión<br>cada semana</div>
-          </div>
-          <div style="background:var(--surface); padding:22px 12px; text-align:center;">
-            <div style="font-size:30px; line-height:1; padding-top:4px;">💻</div>
-            <div style="font-size:11px; color:var(--text-3); margin-top:6px; line-height:1.5;">100% online<br>siempre grabado</div>
+        <div class="cal-month">
+          <div class="cal-month-title">Abril</div>
+          <div class="cal-sessions">
+            <div class="cal-session" title="Panorámica de la fisiología digestiva. Disbiosis y alteraciones en la cavidad oral"><span class="cal-date">15/04</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" title="Alteraciones de la función digestiva I: ERGE, esofagitis y gastritis. Test diagnósticos de Helicobacter pylori"><span class="cal-date">22/04</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" title="Alteraciones de la función digestiva II: hepato-pancreática y biliar. Pruebas de laboratorio relacionadas"><span class="cal-date">29/04</span><span class="cal-teacher veronica">Verónica M.</span></div>
           </div>
         </div>
 
-        <!-- Timeline de mesos -->
-        <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:32px; margin-bottom:20px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-3); margin-bottom:28px;">Recorrido mensual · Martes · 14:00h</div>
-
-          <div style="display:flex; align-items:flex-start; position:relative; padding:0 8px;">
-            <!-- Línia de fons -->
-            <div style="position:absolute; top:18px; left:26px; right:26px; height:2px; background:linear-gradient(90deg, var(--green), rgba(14,40,0,0.12)); z-index:0;"></div>
-
-            <!-- ABR -->
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1;">
-              <div style="width:36px; height:36px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; color:#F7F5F0; font-family:'Instrument Serif',serif; font-size:17px; font-weight:400;">3</div>
-              <div style="font-size:12px; font-weight:700; color:var(--green); letter-spacing:0.06em;">ABR</div>
-              <div style="font-size:11px; color:var(--text-3); text-align:center;">3 sesiones</div>
-            </div>
-
-            <!-- MAY -->
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1;">
-              <div style="width:36px; height:36px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; color:#F7F5F0; font-family:'Instrument Serif',serif; font-size:17px;">4</div>
-              <div style="font-size:12px; font-weight:700; color:var(--green); letter-spacing:0.06em;">MAY</div>
-              <div style="font-size:11px; color:var(--text-3); text-align:center;">4 sesiones</div>
-            </div>
-
-            <!-- JUN -->
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1;">
-              <div style="width:36px; height:36px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; color:#F7F5F0; font-family:'Instrument Serif',serif; font-size:17px;">4</div>
-              <div style="font-size:12px; font-weight:700; color:var(--green); letter-spacing:0.06em;">JUN</div>
-              <div style="font-size:11px; color:var(--text-3); text-align:center;">4 sesiones</div>
-            </div>
-
-            <!-- JUL -->
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1;">
-              <div style="width:36px; height:36px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; color:#F7F5F0; font-family:'Instrument Serif',serif; font-size:17px;">5</div>
-              <div style="font-size:12px; font-weight:700; color:var(--green); letter-spacing:0.06em;">JUL</div>
-              <div style="font-size:11px; color:var(--text-3); text-align:center;">5 sesiones</div>
-            </div>
-
-            <!-- SEP (graduació) -->
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1;">
-              <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--green),#1a4200); display:flex; align-items:center; justify-content:center; font-size:16px; box-shadow:0 0 0 4px rgba(14,40,0,0.1);">🎓</div>
-              <div style="font-size:12px; font-weight:700; color:var(--green); letter-spacing:0.06em;">SEP</div>
-              <div style="font-size:11px; color:var(--text-3); text-align:center;">2 ses. · Final</div>
-            </div>
-          </div>
-
-          <!-- Info primera sessió -->
-          <div style="margin-top:28px; padding:14px 18px; background:rgba(14,40,0,0.04); border-radius:10px; border:1px solid rgba(14,40,0,0.08); display:flex; align-items:center; gap:12px;">
-            <span style="font-size:20px; flex-shrink:0;">📍</span>
-            <div>
-              <div style="font-size:13px; font-weight:600; color:var(--text);">Primera sesión: 15 de Abril · 14:00h</div>
-              <div style="font-size:12px; color:var(--text-3); margin-top:2px;">Plataforma Zoom · Grabación disponible 24h después</div>
+        <div class="cal-month">
+          <div class="cal-month-title">Mayo</div>
+          <div class="cal-sessions">
+            <div class="cal-session" title="Alteraciones de la función digestiva III: Intestino delgado. Marcadores de inflamación"><span class="cal-date">06/05</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" title="Celiaquía: fisiopatología y pruebas diagnósticas (Parte I)"><span class="cal-date">13/05</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" title="Celiaquía: fisiopatología y pruebas diagnósticas (Parte II)"><span class="cal-date">20/05</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" style="opacity: 0.6;" title="Título por confirmar">
+              <span class="cal-date">27/05</span>
+              <span class="cal-teacher joel" style="font-style:italic;">Joel L.B. · Por confirmar</span>
             </div>
           </div>
         </div>
 
-        <!-- Leyenda docentes -->
-        <div style="display:flex; gap:20px; flex-wrap:wrap; padding:0 4px;">
-          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-2);"><div style="width:8px; height:8px; border-radius:50%; background:#166534; flex-shrink:0;"></div>Verónica Martínez</div>
-          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-2);"><div style="width:8px; height:8px; border-radius:50%; background:#0e4f6b; flex-shrink:0;"></div>Joel López Bercianos</div>
-          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-2);"><div style="width:8px; height:8px; border-radius:50%; background:#9d174d; flex-shrink:0;"></div>Dra. Nadia Chahri</div>
+        <div class="cal-month">
+          <div class="cal-month-title">Junio</div>
+          <div class="cal-sessions">
+            <div class="cal-session" title="Microbiota intestinal en salud y enfermedad: cómo reconocer una disbiosis clínicamente relevante"><span class="cal-date">05/06</span><span class="cal-teacher nadia">Dra. Nadia</span></div>
+            <div class="cal-session" title="Histamina y microbiota. Pruebas de laboratorio relacionadas"><span class="cal-date">10/06</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" title="Cómo interpretar un test de microbiota y aplicarlo en la práctica clínica real — con el único test validado clínicamente del mundo"><span class="cal-date">19/06</span><span class="cal-teacher nadia">Dra. Nadia</span><span style="font-size:10px; color: var(--green); font-weight:700; margin-left:4px;">★ Test único</span></div>
+            <div class="cal-session" title="SIBO, IMO y LIBO: cómo sospecharlos e integrarlos con el test de microbiota"><span class="cal-date">26/06</span><span class="cal-teacher nadia">Dra. Nadia</span></div>
+          </div>
+        </div>
+
+        <div class="cal-month">
+          <div class="cal-month-title">Julio</div>
+          <div class="cal-sessions">
+            <div class="cal-session" title="Probióticos: tipos y usos. Pre-bióticos y Post-bióticos"><span class="cal-date">01/07</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" title="Pruebas de laboratorio en heces: usos y limitaciones. Digestión de principios inmediatos. Cultivo microbiológico. Estudio de parásitos: Concentración vs PCR"><span class="cal-date">08/07</span><span class="cal-teacher veronica">Verónica M.</span></div>
+            <div class="cal-session" title="Eje intestino-cerebro: cómo la microbiota influye en ansiedad, inflamación y síntomas digestivos"><span class="cal-date">17/07</span><span class="cal-teacher nadia">Dra. Nadia</span></div>
+            <div class="cal-session" style="opacity: 0.6;" title="Título por confirmar">
+              <span class="cal-date">22/07</span>
+              <span class="cal-teacher joel" style="font-style:italic;">Joel L.B. · Por confirmar</span>
+            </div>
+            <div class="cal-session" style="opacity: 0.6;" title="Título por confirmar">
+              <span class="cal-date">29/07</span>
+              <span class="cal-teacher veronica" style="font-style:italic;">Verónica M. · Por confirmar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cal-month">
+          <div class="cal-month-title">Septiembre</div>
+          <div class="cal-sessions">
+            <div class="cal-session" title="Microbiota y dieta: cómo diseñar intervenciones nutricionales en consulta"><span class="cal-date">04/09</span><span class="cal-teacher nadia">Dra. Nadia</span></div>
+            <div class="cal-session" style="border: 1px solid rgba(74,222,128,0.3); border-radius: 8px;" title="Mesa redonda final con los tres ponentes"><span class="cal-date">18/09</span><span class="cal-teacher nadia" style="color:var(--green);">🎓 Los 3 docentes</span></div>
+          </div>
         </div>
 
       </div>
-
-      <!-- SIDEBAR MILLORAT -->
       <div class="calendar-sidebar">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:16px;">Incluido en el programa</div>
-        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px;">
-          <div style="display:flex; align-items:center; gap:12px; padding:12px 14px; background:rgba(14,40,0,0.04); border:1px solid rgba(14,40,0,0.08); border-radius:10px;">
-            <span style="font-size:18px; flex-shrink:0;">🎥</span>
-            <div><div style="font-size:13px; font-weight:600; color:var(--text);">Sesiones grabadas</div><div style="font-size:11px; color:var(--text-3);">Acceso permanente a todas</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:12px; padding:12px 14px; background:rgba(14,40,0,0.04); border:1px solid rgba(14,40,0,0.08); border-radius:10px;">
-            <span style="font-size:18px; flex-shrink:0;">👥</span>
-            <div><div style="font-size:13px; font-weight:600; color:var(--text);">Comunidad privada</div><div style="font-size:11px; color:var(--text-3);">Solo profesionales inscritos</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:12px; padding:12px 14px; background:rgba(14,40,0,0.04); border:1px solid rgba(14,40,0,0.08); border-radius:10px;">
-            <span style="font-size:18px; flex-shrink:0;">💬</span>
-            <div><div style="font-size:13px; font-weight:600; color:var(--text);">Dudas en directo</div><div style="font-size:11px; color:var(--text-3);">Q&A con los ponentes</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:12px; padding:12px 14px; background:rgba(14,40,0,0.04); border:1px solid rgba(14,40,0,0.08); border-radius:10px;">
-            <span style="font-size:18px; flex-shrink:0;">📚</span>
-            <div><div style="font-size:13px; font-weight:600; color:var(--text);">Documentación clínica</div><div style="font-size:11px; color:var(--text-3);">Protocolos y guías descargables</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:12px; padding:12px 14px; background:rgba(14,40,0,0.04); border:1px solid rgba(14,40,0,0.08); border-radius:10px;">
-            <span style="font-size:18px; flex-shrink:0;">🏆</span>
-            <div><div style="font-size:13px; font-weight:600; color:var(--text);">Gamificación clínica</div><div style="font-size:11px; color:var(--text-3);">Retos y casos interactivos</div></div>
+        <div style="margin-bottom: 18px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Incluido en el programa</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text);"><span style="font-size:16px;">🎥</span> Todas las sesiones grabadas</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text);"><span style="font-size:16px;">👥</span> Comunidad privada de profesionales</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text);"><span style="font-size:16px;">📚</span> Documentación clínica incluida</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text);"><span style="font-size:16px;">💬</span> Dudas en directo con los ponentes</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text);"><span style="font-size:16px;">🏆</span> Gamificación y retos clínicos</div>
           </div>
         </div>
-        <div style="height:1px; background:var(--border); margin-bottom:20px;"></div>
-        <a href="#" class="btn btn-primary" style="width:100%; justify-content:center; margin-bottom:12px;">Reservar plaza →</a>
-        <div style="text-align:center; padding:12px; background:rgba(14,40,0,0.04); border-radius:8px; border:1px solid rgba(14,40,0,0.08);">
-          <div style="font-size:12px; color:var(--text-2); font-weight:600;">Inicio: 15 Abril · 14:00h</div>
-          <div style="font-size:11px; color:var(--text-3); margin-top:2px;">Plazas con beca limitadas</div>
+        <div style="margin-bottom: 18px;">
+          <div style="font-size: 12px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Leyenda docentes</div>
+          <div class="cal-legend">
+            <div class="cal-legend-item"><div class="legend-dot" style="background: #166534;"></div>Verónica Martínez · Analítico</div>
+            <div class="cal-legend-item"><div class="legend-dot" style="background: #0e4f6b;"></div>Joel López Bercianos · Datos & IA</div>
+            <div class="cal-legend-item"><div class="legend-dot" style="background: #9d174d;"></div>Dra. Nadia Chahri · Clínico</div>
+          </div>
         </div>
+        <a href="#" class="btn btn-primary" style="width:100%; justify-content:center;">Reservar plaza →</a>
+        <div style="font-size: 12px; color: var(--text-3); text-align: center; margin-top: 10px;">Plazas con beca limitadas</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1850,7 +1812,7 @@
           <div class="beca-zero-note">si prescribes 4 tests · Riesgo financiero cero</div>
         </div>
         <a href="#" class="btn btn-primary" style="width:100%; justify-content:center; margin-bottom:12px;" >Solicitar beca ahora →</a>
-        <a href="https://wa.me/34621192568?text=Hola%2C%20me%20interesa%20la%20beca%20de%20AMBIOTA%20Academy%20y%20quisiera%20hablar%20con%20vuestro%20equipo." class="btn btn-ghost" style="width:100%; justify-content:center;" target="_blank">Hablar con el equipo antes</a>
+        <a href="#contacto" class="btn btn-ghost" style="width:100%; justify-content:center;" >Hablar con el equipo antes</a>
       </div>
     </div>
   </div>
@@ -1954,7 +1916,7 @@
       </div>
     </div>
     <div style="text-align:center; margin-top: 28px;">
-      <a href="https://wa.me/34621192568?text=Hola%2C%20tengo%20dudas%20sobre%20AMBIOTA%20Academy." class="btn btn-ghost" target="_blank">¿Tienes más dudas? Habla con nuestro equipo →</a>
+      <a href="mailto:info@ambiota.com" class="btn btn-ghost">¿Tienes más dudas? Habla con nuestro equipo →</a>
     </div>
   </div>
 </section>
@@ -1967,7 +1929,7 @@
     <p class="lead" style="text-align:center; margin: 0 auto 36px;">Si quieres integrar la microbiota en tu práctica con rigor, utilidad clínica y un modelo que te permite pasar a la acción desde el primer día, esta es tu oportunidad.</p>
     <div class="close-ctas">
       <a href="#" class="btn btn-primary" style="font-size: 15px; padding: 15px 32px;" >Solicitar beca y matricularse →</a>
-      <a href="https://wa.me/34621192568?text=Hola%2C%20me%20gustar%C3%ADa%20ver%20una%20demo%20privada%20del%20informe%20cl%C3%ADnico%20de%20AMBIOTA." class="btn btn-ghost" target="_blank">Reservar demo privada del informe</a>
+      <a href="#" class="btn btn-ghost" >Reservar demo privada del informe</a>
     </div>
     <div class="close-microcopy">
       <span>Plazas con beca limitadas</span>
@@ -2003,9 +1965,9 @@
       <div class="footer-col">
         <h4>Recursos</h4>
         <a href="#faq">Preguntas frecuentes</a>
-        <a href="https://wa.me/34621192568?text=Hola%2C%20me%20gustar%C3%ADa%20ver%20una%20demo%20del%20informe%20cl%C3%ADnico%20de%20AMBIOTA." target="_blank">Demo del informe</a>
+        <a href="#" data-modal="true">Demo del informe</a>
         <a href="#" data-modal="true">Solicitar beca</a>
-        <a href="https://wa.me/34621192568?text=Hola%2C%20tengo%20preguntas%20sobre%20AMBIOTA%20Academy." target="_blank">Contacto</a>
+        <a href="mailto:info@ambiota.com">Contacto</a>
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
@@ -2026,9 +1988,9 @@
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 AMBIOTA Academy · AM Biota S.L. · Todos los derechos reservados.</div>
       <div class="footer-legal">
-        <a href="#">Política de privacidad</a>
-        <a href="#">Términos y condiciones</a>
-        <a href="#">Aviso legal</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos y condiciones</a>
+        <a href="aviso-legal.html">Aviso legal</a>
       </div>
     </div>
   </div>
@@ -2079,10 +2041,19 @@
           <input id="f-phone" type="tel" placeholder="+34 600 000 000" required>
         </div>
       </div>
-      <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:4px;">
-        <input id="f-gdpr" type="checkbox" style="margin-top:3px; flex-shrink:0; accent-color:var(--green); width:15px; height:15px; cursor:pointer;" required>
-        <label for="f-gdpr" style="font-size:12px; color:var(--text-3); line-height:1.5; cursor:pointer;">
-          He leído y acepto la <a href="#" style="color:var(--green); text-decoration:underline;">Política de Privacidad</a>. Consiento el tratamiento de mis datos para gestionar mi solicitud de plaza.
+      <div class="form-group">
+        <label>¿Qué te interesa más?</label>
+        <select id="f-interest">
+          <option value="">Selecciona una opción</option>
+          <option>Matrícula directa con la beca</option>
+          <option>Demo del nuevo informe clínico</option>
+          <option>Hablar con el equipo primero</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom:12px; margin-top:4px;">
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:12px;color:var(--text-2);text-transform:none;letter-spacing:0;font-weight:400;line-height:1.5;">
+          <input type="checkbox" id="f-gdpr" style="margin-top:3px;flex-shrink:0;accent-color:var(--green);width:14px;height:14px;">
+          He leído y acepto la <a href="privacidad.html" target="_blank" style="color:var(--green);text-decoration:underline;">Política de Privacidad</a> y consiento el tratamiento de mis datos personales para gestionar mi solicitud de beca. *
         </label>
       </div>
       <div id="form-error" style="display:none; color:#dc2626; font-size:13px; margin-bottom:10px; padding:10px 14px; background:#fef2f2; border-radius:8px; border:1px solid #fecaca;"></div>
@@ -2134,23 +2105,24 @@
     var phone     = document.getElementById('f-phone').value.trim();
     var profession= document.getElementById('f-profession').value;
     var specialty = document.getElementById('f-specialty').value.trim();
+    var interest  = document.getElementById('f-interest').value;
     var errorDiv  = document.getElementById('form-error');
     var submitBtn = document.getElementById('form-submit-btn');
 
-    var gdpr = document.getElementById('f-gdpr');
     // Validació bàsica
     if (!firstName || !lastName || !email || !phone || !profession) {
       errorDiv.textContent = 'Por favor, completa todos los campos obligatorios (*).';
       errorDiv.style.display = 'block';
       return;
     }
-    if (gdpr && !gdpr.checked) {
-      errorDiv.textContent = 'Debes aceptar la Política de Privacidad para continuar.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorDiv.textContent = 'Por favor, introduce un email válido.';
       errorDiv.style.display = 'block';
       return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errorDiv.textContent = 'Por favor, introduce un email válido.';
+    var gdprCheck = document.getElementById('f-gdpr');
+    if (!gdprCheck || !gdprCheck.checked) {
+      errorDiv.textContent = 'Debes aceptar la Política de Privacidad para enviar tu solicitud.';
       errorDiv.style.display = 'block';
       return;
     }
@@ -2168,7 +2140,7 @@
       phone:      phone,
       profession: profession,
       specialty:  specialty,
-      gdprConsent: true,
+      interest:   interest || 'No especificado',
       source:     'AMBIOTA Academy - ambiotaacademy.com',
       tags:       ['academy-beca-2026', 'landing-form']
     };
@@ -2199,6 +2171,8 @@
     if (formState) formState.style.display = 'block';
     if (successState) successState.style.display = 'none';
     if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Enviar solicitud →'; }
+    var gdprCheck = document.getElementById('f-gdpr');
+    if (gdprCheck) gdprCheck.checked = false;
     var errorDiv = document.getElementById('form-error');
     if (errorDiv) errorDiv.style.display = 'none';
   }
