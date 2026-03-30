@@ -283,7 +283,25 @@
 
     <!-- Checkboxes obligatoris -->
     <div class="check-group">
-      <div class="check-separator">Aceptación obligatoria</div>
+      <div class="check-separator">Mi compromiso de beca — elige una opción</div>
+
+      <div id="label-opcion" style="display:flex; flex-direction:column; gap:8px; margin-bottom:4px;">
+        <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:white;">
+          <input type="radio" name="opcion-beca" id="opcion-a" value="A-4tests-microbiota" style="margin-top:3px; accent-color:var(--green); flex-shrink:0;">
+          <span style="font-size:14px; color:var(--text-2); line-height:1.5;"><strong style="color:var(--text);">Opción A</strong> — Prescribir un mínimo de 4 tests de microbiota AMBIOTA a mis pacientes durante el programa.</span>
+        </label>
+        <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:white;">
+          <input type="radio" name="opcion-beca" id="opcion-b" value="B-6tests-PCR" style="margin-top:3px; accent-color:var(--green); flex-shrink:0;">
+          <span style="font-size:14px; color:var(--text-2); line-height:1.5;"><strong style="color:var(--text);">Opción B</strong> — Prescribir un mínimo de 6 tests PCR AMBIOTA a mis pacientes durante el programa.</span>
+        </label>
+        <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:white;">
+          <input type="radio" name="opcion-beca" id="opcion-c" value="C-1500eur" style="margin-top:3px; accent-color:var(--green); flex-shrink:0;">
+          <span style="font-size:14px; color:var(--text-2); line-height:1.5;"><strong style="color:var(--text);">Opción C</strong> — Abonar el precio oficial del programa: 1.500 € + IVA.</span>
+        </label>
+        <div class="error-msg" id="error-opcion">Por favor, selecciona una de las opciones de compromiso.</div>
+      </div>
+
+      <div class="check-separator" style="margin-top:14px;">Aceptación obligatoria</div>
 
       <label class="check-label required-check" id="label-terms">
         <input type="checkbox" id="check-terms">
@@ -292,7 +310,7 @@
 
       <label class="check-label required-check" id="label-compromis">
         <input type="checkbox" id="check-compromis">
-        <span>Me comprometo a cumplir una de las opciones de beca durante el programa (4 tests de microbiota, 6 tests PCR, o abono de 1.500 € + IVA), entendiendo que el incumplimiento sin causa justificada conllevará la facturación proporcional correspondiente.</span>
+        <span>Confirmo el compromiso seleccionado arriba y entiendo que el incumplimiento sin causa justificada conllevará la facturación proporcional correspondiente hasta un máximo de 1.500 € + IVA.</span>
       </label>
 
       <label class="check-label required-check" id="label-privacy">
@@ -359,6 +377,19 @@
     function validateForm() {
       let valid = true;
 
+      // Validar opció de beca seleccionada
+      const opcioSeleccionada = document.querySelector('input[name="opcion-beca"]:checked');
+      const errorOpcio = document.getElementById('error-opcion');
+      if (!opcioSeleccionada) {
+        errorOpcio.style.display = 'block';
+        document.getElementById('label-opcion').style.outline = '2px solid #c0392b';
+        document.getElementById('label-opcion').style.borderRadius = '8px';
+        valid = false;
+      } else {
+        errorOpcio.style.display = 'none';
+        document.getElementById('label-opcion').style.outline = '';
+      }
+
       const required = [
         { id: 'check-terms', labelId: 'label-terms' },
         { id: 'check-compromis', labelId: 'label-compromis' },
@@ -392,6 +423,7 @@
 
       const firma = document.getElementById('firma-nombre').value.trim();
       const marketingConsent = document.getElementById('check-marketing').checked;
+      const opcioTriada = document.querySelector('input[name="opcion-beca"]:checked')?.value || '';
       const timestamp = new Date().toISOString();
 
       const payload = {
@@ -402,6 +434,7 @@
         specialty: specialty,
         firma_nombre: firma,
         timestamp_confirmacion: timestamp,
+        opcion_beca: opcioTriada,
         accepted_terms: true,
         accepted_compromis: true,
         accepted_privacy: true,
