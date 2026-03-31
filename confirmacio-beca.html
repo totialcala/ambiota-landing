@@ -423,7 +423,10 @@
       const firma            = document.getElementById('firma-nombre').value.trim();
       const dni              = document.getElementById('firma-dni').value.trim();
       const marketingConsent = document.getElementById('check-marketing').checked;
-      const timestamp        = new Date().toISOString();
+      const now = new Date();
+      const timestamp = now.toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })
+                      + ' a las '
+                      + now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
 
       const payload = {
         contact_id:              contactId,
