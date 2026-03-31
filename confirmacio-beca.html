@@ -10,6 +10,7 @@
       --bg-2: #f0ede6;
       --surface: #eae7e0;
       --green: #2d5a1b;
+      --green-dark: #0E2800;
       --green-light: rgba(45,90,27,0.08);
       --text: #1a1a1a;
       --text-2: #4a4a4a;
@@ -25,8 +26,8 @@
     .container { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
 
     /* Header */
-    .logo { font-size: 18px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; margin-bottom: 32px; }
-    .logo span { color: var(--green); }
+    .logo-wrap { margin-bottom: 32px; }
+    .logo-wrap img { height: 32px; }
 
     /* Status badge */
     .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(74,222,128,0.12); color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 20px; margin-bottom: 20px; }
@@ -54,14 +55,12 @@
     .beca-row .val { font-weight: 600; color: var(--text); text-align: right; }
     .beca-row .val.highlight { color: var(--green); }
 
-    /* Options alternativas */
-    .options-label { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; }
-    .option-cards { display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
-    .option-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 14px; }
-    .option-num { width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .option-text { font-size: 14px; color: var(--text); }
-    .option-text strong { color: var(--green); }
-    .option-or { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-3); text-transform: uppercase; padding: 2px 0; }
+    /* Compromís únic */
+    .compromis-unic { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 0; }
+    .compromis-unic .cu-title { font-size: 14px; font-weight: 700; color: var(--amber); margin-bottom: 10px; }
+    .compromis-unic p { font-size: 14px; color: var(--text-2); margin-bottom: 6px; line-height: 1.6; }
+    .compromis-unic p:last-child { margin-bottom: 0; }
+    .compromis-unic strong { color: var(--text); }
 
     /* Programme includes */
     .includes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
@@ -69,14 +68,7 @@
     .check { width: 18px; height: 18px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
     .check svg { width: 10px; height: 10px; }
 
-    /* Compromís */
-    .compromis-box { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 20px; }
-    .compromis-box .compromis-title { font-size: 14px; font-weight: 700; color: var(--amber); margin-bottom: 10px; }
-    .compromis-box p { font-size: 14px; color: var(--text-2); margin-bottom: 6px; }
-    .compromis-box p:last-child { margin-bottom: 0; }
-    .compromis-box strong { color: var(--text); }
-
-    /* Cancellation friendly */
+    /* Política cancelació amigable */
     .friendly-box { background: #f0f7ff; border: 1px solid rgba(30,100,200,0.15); border-radius: 10px; padding: 18px 22px; margin-bottom: 20px; }
     .friendly-box .friendly-title { font-size: 14px; font-weight: 700; color: #1a5cb0; margin-bottom: 10px; }
     .friendly-box p { font-size: 14px; color: var(--text-2); margin-bottom: 6px; }
@@ -87,15 +79,11 @@
     .terms-scroll h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3); margin: 14px 0 6px; }
     .terms-scroll h3:first-child { margin-top: 0; }
     .terms-scroll p { margin-bottom: 8px; }
-    .terms-scroll ul { margin: 6px 0 8px 18px; }
-    .terms-scroll li { margin-bottom: 3px; }
-
-    /* Separator */
-    .check-separator { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-3); margin: 6px 0 10px; }
-    .check-separator.optional-label { color: #7a9a7a; }
 
     /* Checkboxes */
     .check-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .check-separator { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-3); margin: 6px 0 10px; }
+    .check-separator.optional-label { color: #7a9a7a; }
     .check-label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
     .check-label input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--green); cursor: pointer; flex-shrink: 0; }
     .check-label span { font-size: 14px; color: var(--text-2); line-height: 1.5; }
@@ -112,9 +100,12 @@
     .sign-hint { font-size: 12px; color: var(--text-3); margin-top: 6px; }
 
     /* Submit */
-    .submit-btn { width: 100%; padding: 16px; background: var(--green); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.2s; }
+    .submit-btn { width: 100%; padding: 16px; background: var(--green-dark); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.2s; }
     .submit-btn:hover { opacity: 0.88; }
     .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* Error */
+    .error-msg { display: none; color: var(--red); font-size: 13px; margin-top: 6px; }
 
     /* Legal footer */
     .legal-footer { font-size: 12px; color: var(--text-3); text-align: center; margin-top: 24px; line-height: 1.6; }
@@ -122,18 +113,18 @@
 
     /* Success state */
     .success-screen { display: none; text-align: center; padding: 48px 24px; }
-    .success-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .success-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--green-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
     .success-icon svg { width: 32px; height: 32px; }
     .success-screen h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
     .success-screen p { font-size: 15px; color: var(--text-2); }
-
-    /* Error */
-    .error-msg { display: none; color: var(--red); font-size: 13px; margin-top: 6px; }
   </style>
 </head>
 <body>
   <div class="container" id="main-form">
-    <div class="logo">AM<span>BIOTA</span> Academy</div>
+
+    <div class="logo-wrap">
+      <img src="https://www.ambiotaacademy.com/ambiota_logo_Web.png" alt="AMBIOTA Academy">
+    </div>
 
     <div class="status-badge">
       <div class="status-dot"></div>
@@ -143,7 +134,7 @@
     <h1>Formaliza tu beca de formación</h1>
     <p class="subtitle">Revisa las condiciones, acepta el compromiso y confirma tu plaza. Solo te llevará 2 minutos.</p>
 
-    <!-- Participant data (pre-filled via URL params) -->
+    <!-- Dades del participant (pre-omplertes via URL params) -->
     <div class="participant-card">
       <div class="label">Participante</div>
       <div class="name" id="display-name">—</div>
@@ -177,67 +168,81 @@
         </div>
       </div>
 
-      <div class="options-label">Tu compromiso — elige una de estas opciones:</div>
-      <div class="option-cards">
-        <div class="option-card">
-          <div class="option-num">A</div>
-          <div class="option-text">Prescribir un mínimo de <strong>4 tests de microbiota AMBIOTA</strong> a tus pacientes durante el programa</div>
-        </div>
-        <div class="option-or">ó</div>
-        <div class="option-card">
-          <div class="option-num">B</div>
-          <div class="option-text">Prescribir un mínimo de <strong>6 tests PCR AMBIOTA</strong> a tus pacientes durante el programa</div>
-        </div>
-        <div class="option-or">ó</div>
-        <div class="option-card">
-          <div class="option-num">C</div>
-          <div class="option-text">Abonar el precio oficial del programa: <strong>1.500 € + IVA</strong></div>
-        </div>
+      <div class="compromis-unic">
+        <div class="cu-title">⚡ Tu compromiso de beca</div>
+        <p>Accedes al programa completo <strong>sin coste inicial</strong>. A cambio, te comprometes a prescribir un mínimo de <strong>4 tests de microbiota AMBIOTA</strong> o <strong>6 tests PCR AMBIOTA</strong> a tus pacientes a lo largo del programa.</p>
+        <p>Si al finalizar el programa no se ha alcanzado ese número, se facturará el precio oficial del programa de <strong>1.500 € + IVA</strong>.</p>
+      </div>
+
+      <!-- Tensió baixa: context de valor -->
+      <div style="background:#f0f7f0;border:1px solid rgba(45,90,27,0.15);border-radius:10px;padding:18px 22px;margin-top:12px;">
+        <p style="font-size:13px;color:#2d5a1b;font-weight:700;margin-bottom:8px;">Ponlo en perspectiva</p>
+        <p style="font-size:14px;color:#4a4a4a;line-height:1.6;margin-bottom:6px;">Estás accediendo a <strong>5 meses de formación especializada</strong> valorada en 1.500 €. El compromiso es prescribir 4 tests a lo largo de todo ese tiempo — es decir, <strong>menos de 1 test al mes</strong>.</p>
+        <p style="font-size:14px;color:#4a4a4a;line-height:1.6;margin:0;">Cualquier profesional que aplique lo aprendido en el primer módulo ya habrá cubierto eso con creces. La condición no es un sacrificio — <strong>es casi simbólica.</strong></p>
       </div>
     </div>
 
     <!-- Qué incluye -->
     <div class="section">
-      <div class="section-title">El programa incluye</div>
-      <ul class="includes-list">
-        <li>
-          <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Acceso completo a la plataforma formativa y grabaciones de todas las sesiones
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Materiales clínicos de apoyo y protocolos de interpretación
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Sesiones de Q&amp;A en directo con el equipo AMBIOTA (Dra. Nàdia, Verónica, Joel)
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Acceso a la comunidad privada de profesionales AMBIOTA
-        </li>
-        <li>
-          <div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Código de prescripción personal con descuento para tus pacientes
-        </li>
-      </ul>
+      <div class="section-title">Lo que te llevas</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:22px;flex-shrink:0;margin-top:2px;">🎓</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2d5a1b;margin-bottom:4px;">Formación completa · 5 meses</div>
+            <div style="font-size:14px;color:#1a1a1a;font-weight:600;margin-bottom:3px;">Acceso total a la plataforma + grabaciones de todas las sesiones</div>
+            <div style="font-size:13px;color:#7a7a7a;">Todo el contenido disponible desde el primer día, a tu ritmo, para siempre.</div>
+          </div>
+        </div>
+
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:22px;flex-shrink:0;margin-top:2px;">🧬</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2d5a1b;margin-bottom:4px;">Protocolos clínicos exclusivos</div>
+            <div style="font-size:14px;color:#1a1a1a;font-weight:600;margin-bottom:3px;">Materiales y protocolos de interpretación listos para aplicar en consulta</div>
+            <div style="font-size:13px;color:#7a7a7a;">No teoría. Criterio clínico real para pasar del resultado al tratamiento.</div>
+          </div>
+        </div>
+
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:22px;flex-shrink:0;margin-top:2px;">🎙️</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2d5a1b;margin-bottom:4px;">Acceso directo al equipo científico</div>
+            <div style="font-size:14px;color:#1a1a1a;font-weight:600;margin-bottom:3px;">Sesiones de Q&A en directo con Dra. Nàdia, Verónica y Joel</div>
+            <div style="font-size:13px;color:#7a7a7a;">Resuelves casos reales de tus pacientes con los expertos que diseñaron el test.</div>
+          </div>
+        </div>
+
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:22px;flex-shrink:0;margin-top:2px;">🤝</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2d5a1b;margin-bottom:4px;">Comunidad de profesionales</div>
+            <div style="font-size:14px;color:#1a1a1a;font-weight:600;margin-bottom:3px;">Acceso a la red privada de profesionales AMBIOTA</div>
+            <div style="font-size:13px;color:#7a7a7a;">Aprende, comparte casos y crece junto a otros profesionales que trabajan con la misma herramienta.</div>
+          </div>
+        </div>
+
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="font-size:22px;flex-shrink:0;margin-top:2px;">💊</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2d5a1b;margin-bottom:4px;">Código de prescripción personal</div>
+            <div style="font-size:14px;color:#1a1a1a;font-weight:600;margin-bottom:3px;">Descuento exclusivo para tus pacientes en cada test que prescribas</div>
+            <div style="font-size:13px;color:#7a7a7a;">Una ventaja directa que facilita la conversación con el paciente y reduce su fricción.</div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Com funciona la beca -->
+    <!-- Com funciona i política de cancelació -->
     <div class="section">
-      <div class="section-title">Cómo funciona la beca</div>
-      <div class="compromis-box">
-        <div class="compromis-title">⚡ Beca sin coste inicial</div>
-        <p>Accedes al programa completo <strong>sin pagar nada por adelantado</strong>. Durante el programa, prescribes tests AMBIOTA a tus pacientes con normalidad. El valor generado por esas prescripciones cubre el coste de tu formación.</p>
-        <p>Al finalizar el programa, si no se ha alcanzado el número de tests comprometido (opción A o B), se facturará únicamente la diferencia proporcional respecto al precio oficial de 1.500 € + IVA.</p>
-      </div>
-
-      <!-- Política de cancelació amigable -->
+      <div class="section-title">Política de cancelación — sin letra pequeña</div>
       <div class="friendly-box">
-        <div class="friendly-title">🤝 Política de cancelación — sin letra pequeña</div>
-        <p><strong>Primeros 15 días naturales:</strong> desde la confirmación de tu plaza, tienes 15 días naturales para arrepentirte sin coste ni penalización. Sin preguntas. Es tu derecho y lo respetamos.</p>
-        <p><strong>Por fuerza mayor:</strong> si durante el programa te surge una situación de fuerza mayor (baja médica, cierre de consulta u otras circunstancias excepcionales debidamente documentadas), AMBIOTA buscará contigo una solución adaptada —ya sea pausar tu participación, incorporarte a la siguiente edición o cancelar sin penalización.</p>
-        <p><strong>Si el programa no es para ti:</strong> si en cualquier momento decides que este programa no se ajusta a lo que necesitas, no se te cobrarán los 1.500 €. La única condición para aplicar esta garantía es que hayas participado activamente en el programa —asistiendo o visionando la totalidad del contenido disponible hasta ese momento. Queremos que te vayas con valor, no con una factura.</p>
+        <div class="friendly-title">🤝 Comprometidos con tu tranquilidad</div>
+        <p><strong>Primeros 15 días naturales:</strong> tienes 15 días naturales desde la confirmación para desistir sin coste ni penalización. Sin preguntas.</p>
+        <p><strong>Por fuerza mayor:</strong> si durante el programa surge una situación excepcional debidamente documentada (baja médica, cierre de consulta…), AMBIOTA buscará contigo una solución adaptada.</p>
+        <p><strong>Si el programa no es para ti:</strong> si decides en cualquier momento que este programa no se ajusta a lo que necesitas, no se te cobrarán los 1.500 €, siempre que hayas participado activamente en el contenido disponible hasta ese momento.</p>
       </div>
     </div>
 
@@ -249,68 +254,74 @@
         <p>El Programa de Formación AMBIOTA Academy es un programa formativo online de aproximadamente 5 meses de duración (abril–septiembre 2026), dirigido exclusivamente a profesionales de la salud (médicos, nutricionistas, enfermeros, farmacéuticos, profesionales de PNI Clínica y afines), diseñado para capacitarles en la interpretación clínica del test de microbiota intestinal de AMBIOTA.</p>
 
         <h3>2. Funcionamiento de la beca</h3>
-        <p>El participante becado accede al programa de formación completo sin coste inicial. Como contrapartida, el participante se compromete a cumplir una de las siguientes opciones durante el período del programa:</p>
-        <ul>
-          <li><strong>Opción A:</strong> Prescribir un mínimo de 4 tests de microbiota AMBIOTA a sus pacientes.</li>
-          <li><strong>Opción B:</strong> Prescribir un mínimo de 6 tests PCR AMBIOTA a sus pacientes.</li>
-          <li><strong>Opción C:</strong> Abonar el precio oficial del programa: 1.500 € + IVA.</li>
-        </ul>
-        <p>Si al finalizar el programa el participante no ha cumplido la opción A o B elegida, AMBIOTA facturará la diferencia proporcional respecto al precio oficial del programa.</p>
+        <p>El participante becado accede al programa de formación completo sin coste inicial. Como contrapartida, el participante se compromete a prescribir un mínimo de <strong>4 tests de microbiota AMBIOTA</strong> o <strong>6 tests PCR AMBIOTA</strong> a sus pacientes durante el período del programa. Si al finalizar el programa no se ha alcanzado ese número de prescripciones, AMBIOTA facturará el precio oficial del programa de 1.500 € + IVA.</p>
 
         <h3>3. Proceso de admisión</h3>
         <p>La confirmación de plaza es comunicada por escrito por el equipo AMBIOTA. AMBIOTA se reserva el derecho de admisión en función del perfil profesional y la disponibilidad de plazas.</p>
 
         <h3>4. Cancelación, renuncia y garantía de satisfacción</h3>
-        <p><strong>Derecho de desistimiento (15 días naturales):</strong> de conformidad con la legislación española aplicable, el participante dispone de un plazo de 15 días naturales desde la confirmación de su plaza para ejercer el derecho de desistimiento, sin necesidad de justificación y sin coste alguno.</p>
-        <p><strong>Incorporación durante el programa:</strong> el programa admite la incorporación de nuevos participantes durante el transcurso de la edición, con acceso completo a todos los materiales y grabaciones acumulados desde el inicio. En este caso, el compromiso de prescripción se calculará de forma proporcional al tiempo de participación efectiva hasta el cierre del programa.</p>
-        <p><strong>Fuerza mayor:</strong> en caso de circunstancias excepcionales e involuntarias debidamente documentadas (baja médica prolongada, cierre forzoso de actividad profesional u otras de naturaleza análoga), AMBIOTA podrá acordar con el participante la suspensión temporal de su participación, el traslado a una edición futura o la cancelación sin penalización económica, a criterio de AMBIOTA y previa valoración del caso.</p>
-        <p><strong>Garantía de satisfacción:</strong> si en cualquier momento durante el programa el participante considera que el contenido no se ajusta a sus necesidades profesionales, podrá solicitar la cancelación sin que se le aplique el coste de los 1.500 € (ni se le facture cantidad alguna pendiente), siempre y cuando haya participado activamente en el programa y haya visionado la totalidad del contenido formativo disponible hasta la fecha de solicitud de cancelación. Esta garantía no aplica a cancelaciones motivadas por el incumplimiento del compromiso de prescripción.</p>
+        <p><strong>Derecho de desistimiento (15 días naturales):</strong> el participante dispone de 15 días naturales desde la confirmación para ejercer el derecho de desistimiento, sin coste alguno.</p>
+        <p><strong>Fuerza mayor:</strong> en caso de circunstancias excepcionales debidamente documentadas, AMBIOTA podrá acordar con el participante la suspensión temporal, el traslado a una edición futura o la cancelación sin penalización.</p>
+        <p><strong>Garantía de satisfacción:</strong> si en cualquier momento el participante considera que el contenido no se ajusta a sus necesidades, podrá solicitar la cancelación sin que se le aplique coste alguno, siempre que haya participado activamente y haya visionado la totalidad del contenido disponible hasta la fecha de solicitud.</p>
 
         <h3>5. Propiedad intelectual y uso de imagen</h3>
-        <p>Todos los materiales formativos, grabaciones, protocolos y documentación clínica facilitados durante el programa son propiedad de AM BIOTA, S.L.U. y están protegidos por la normativa de propiedad intelectual. Queda expresamente prohibida su reproducción, distribución o cesión a terceros sin autorización escrita previa.</p>
-        <p>El participante, por el hecho de inscribirse en el programa y participar en sus sesiones, comunidad y actividades, otorga a AM BIOTA, S.L.U. autorización expresa y gratuita para registrar, editar y utilizar las grabaciones de las sesiones, intervenciones en la comunidad privada, testimonios y cualquier otro contenido generado durante el programa, con fines de comunicación, formación interna y publicidad de la marca AMBIOTA, en cualquier soporte o medio, sin limitación geográfica y durante un plazo indefinido. Si el participante desea excluir alguna intervención concreta de este uso, podrá comunicarlo por escrito a info@ambiota.com.</p>
+        <p>Todos los materiales son propiedad de AM BIOTA, S.L.U. y están protegidos por la normativa de propiedad intelectual. Queda expresamente prohibida su reproducción o cesión sin autorización escrita previa. El participante, por el hecho de inscribirse, otorga a AM BIOTA, S.L.U. autorización para registrar y utilizar grabaciones e intervenciones en la comunidad con fines de comunicación y publicidad, en cualquier soporte y durante un plazo indefinido.</p>
 
         <h3>6. Responsabilidad</h3>
         <p>La formación tiene carácter exclusivamente educativo. AM BIOTA, S.L.U. no se responsabiliza de las decisiones clínicas que cada profesional tome en el ejercicio de su actividad.</p>
 
-        <h3>7. Datos personales y comunicaciones</h3>
-        <p>El tratamiento de datos personales derivado de la participación en el programa se rige por la Política de Privacidad disponible en ambiotaacademy.com/privacidad.html. Responsable del tratamiento: AM BIOTA, S.L.U., CIF B56522345. El participante puede revocar en cualquier momento cualquier consentimiento otorgado escribiendo a info@ambiota.com.</p>
+        <h3>7. Datos personales</h3>
+        <p>El tratamiento de datos se rige por la Política de Privacidad en ambiotaacademy.com/privacidad.html. Responsable: AM BIOTA, S.L.U., CIF B56522345.</p>
 
         <h3>8. Legislación aplicable</h3>
         <p>Estos términos se rigen por la legislación española. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales de Girona.</p>
       </div>
     </div>
 
-    <!-- Checkboxes obligatoris -->
-    <div class="check-group">
-      <div class="check-separator">Mi compromiso de beca — elige una opción</div>
-
-      <div id="label-opcion" style="display:flex; flex-direction:column; gap:8px; margin-bottom:4px;">
-        <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:white;">
-          <input type="radio" name="opcion-beca" id="opcion-a" value="A-4tests-microbiota" style="margin-top:3px; accent-color:var(--green); flex-shrink:0;">
-          <span style="font-size:14px; color:var(--text-2); line-height:1.5;"><strong style="color:var(--text);">Opción A</strong> — Prescribir un mínimo de 4 tests de microbiota AMBIOTA a mis pacientes durante el programa.</span>
-        </label>
-        <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:white;">
-          <input type="radio" name="opcion-beca" id="opcion-b" value="B-6tests-PCR" style="margin-top:3px; accent-color:var(--green); flex-shrink:0;">
-          <span style="font-size:14px; color:var(--text-2); line-height:1.5;"><strong style="color:var(--text);">Opción B</strong> — Prescribir un mínimo de 6 tests PCR AMBIOTA a mis pacientes durante el programa.</span>
-        </label>
-        <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:white;">
-          <input type="radio" name="opcion-beca" id="opcion-c" value="C-1500eur" style="margin-top:3px; accent-color:var(--green); flex-shrink:0;">
-          <span style="font-size:14px; color:var(--text-2); line-height:1.5;"><strong style="color:var(--text);">Opción C</strong> — Abonar el precio oficial del programa: 1.500 € + IVA.</span>
-        </label>
-        <div class="error-msg" id="error-opcion">Por favor, selecciona una de las opciones de compromiso.</div>
+    <!-- Les 6 objeccions resoltes -->
+    <div class="section">
+      <div class="section-title">Lo que este programa resuelve</div>
+      <p style="font-size:14px;color:#4a4a4a;margin-bottom:16px;line-height:1.6;">Al terminar AMBIOTA Academy, los frenos que tenías habrán desaparecido:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:10px;">
+        <div style="background:#f7f5f0;border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">😰</span>
+          <div><div style="font-size:12px;font-weight:700;color:#2d5a1b;margin-bottom:2px;">Miedo a equivocarse</div><div style="font-size:12px;color:#6a6a6a;">"No sabré interpretar el resultado" → Sabrás exactamente qué tiene peso clínico real.</div></div>
+        </div>
+        <div style="background:#f7f5f0;border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🧩</span>
+          <div><div style="font-size:12px;font-weight:700;color:#2d5a1b;margin-bottom:2px;">Bloqueo práctico</div><div style="font-size:12px;color:#6a6a6a;">"No podré traducirlo en tratamiento" → Tendrás protocolos listos para aplicar desde el primer módulo.</div></div>
+        </div>
+        <div style="background:#f7f5f0;border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">⏱️</span>
+          <div><div style="font-size:12px;font-weight:700;color:#2d5a1b;margin-bottom:2px;">Fricción operativa</div><div style="font-size:12px;color:#6a6a6a;">"Voy a perder tiempo en consulta" → El flujo de lectura lo convierte en una herramienta ágil.</div></div>
+        </div>
+        <div style="background:#f7f5f0;border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🎙️</span>
+          <div><div style="font-size:12px;font-weight:700;color:#2d5a1b;margin-bottom:2px;">Pérdida de autoridad</div><div style="font-size:12px;color:#6a6a6a;">"¿Y si el paciente pregunta algo que no sé?" → Responderás con seguridad y criterio.</div></div>
+        </div>
+        <div style="background:#f7f5f0;border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🧪</span>
+          <div><div style="font-size:12px;font-weight:700;color:#2d5a1b;margin-bottom:2px;">Experiencia previa negativa</div><div style="font-size:12px;color:#6a6a6a;">"He visto otros tests que no aportaban valor" → AMBIOTA es el único con 3 estudios de validación clínica.</div></div>
+        </div>
+        <div style="background:#f7f5f0;border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🔄</span>
+          <div><div style="font-size:12px;font-weight:700;color:#2d5a1b;margin-bottom:2px;">Problema de sistema</div><div style="font-size:12px;color:#6a6a6a;">"No sé cómo integrarlo en mi consulta" → Saldrás con un protocolo propio y operativo.</div></div>
+        </div>
       </div>
+    </div>
 
-      <div class="check-separator" style="margin-top:14px;">Aceptación obligatoria</div>
+    <!-- Checkboxes -->
+    <div class="check-group">
+      <div class="check-separator">Aceptación obligatoria</div>
 
       <label class="check-label required-check" id="label-terms">
         <input type="checkbox" id="check-terms">
-        <span>He leído y acepto los <a href="terminos.html" target="_blank">Términos y Condiciones</a> del Programa de Formación AMBIOTA Academy — Edición Beca 2026, incluyendo la política de cancelación y las condiciones de uso de imagen descritas en el apartado 5.</span>
+        <span>He leído y acepto los <a href="terminos.html" target="_blank">Términos y Condiciones</a> del Programa de Formación AMBIOTA Academy — Edición Beca 2026, incluyendo la política de cancelación y las condiciones de uso de imagen.</span>
       </label>
 
       <label class="check-label required-check" id="label-compromis">
         <input type="checkbox" id="check-compromis">
-        <span>Confirmo el compromiso seleccionado arriba y entiendo que el incumplimiento sin causa justificada conllevará la facturación proporcional correspondiente hasta un máximo de 1.500 € + IVA.</span>
+        <span>Entiendo y acepto el compromiso de prescripción de la beca: prescribir un mínimo de <strong>4 tests de microbiota AMBIOTA</strong> o <strong>6 tests PCR AMBIOTA</strong> durante el programa. En caso de no cumplirlo sin causa justificada, se me facturará el precio oficial del programa de <strong>1.500 € + IVA</strong>.</span>
       </label>
 
       <label class="check-label required-check" id="label-privacy">
@@ -318,21 +329,21 @@
         <span>He leído y acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a> de AM BIOTA, S.L.U. y autorizo el tratamiento de mis datos para la gestión de mi participación en el programa.</span>
       </label>
 
-      <!-- Separador opcional -->
-      <div class="check-separator optional-label" style="margin-top: 8px;">Comunicaciones — opcional</div>
-
-      <label class="check-label optional-check" id="label-marketing">
-        <input type="checkbox" id="check-marketing">
-        <span>Acepto recibir comunicaciones comerciales e informativas de AM BIOTA, S.L.U. (novedades científicas, newsletter, ofertas y contenido de interés profesional) por email y/o WhatsApp. <span class="optional-badge">Opcional</span> Puedo revocar este consentimiento en cualquier momento escribiendo a info@ambiota.com.</span>
-      </label>
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-top:14px;background:rgba(14,40,0,0.04);border-radius:8px;padding:12px 14px;">
+        <input type="checkbox" id="check-marketing" style="margin-top:3px;flex-shrink:0;accent-color:#2d5a1b;width:16px;height:16px;cursor:pointer;">
+        <label for="check-marketing" style="font-size:13px;color:#4a4a4a;line-height:1.5;cursor:pointer;">
+          <strong style="color:#2d5a1b;">Quiero estar al día 🌱</strong> — Envíame solo lo que vale la pena: ciencia nueva, casos clínicos, recursos para profesionales y novedades de AMBIOTA. Estar en nuestro mailing es como tener acceso preferente al conocimiento antes que nadie. <span style="color:#8a8a8a;">(Opcional · puedes darte de baja cuando quieras)</span>
+        </label>
+      </div>
     </div>
 
-    <!-- Confirmació amb nom -->
+    <!-- Signatura -->
     <div class="sign-group">
-      <label class="sign-label" for="firma-nombre">Confirma tu identidad: escribe tu nombre completo</label>
-      <input type="text" class="sign-input" id="firma-nombre" placeholder="Nombre y apellidos" autocomplete="name">
-      <div class="sign-hint">Al escribir tu nombre y enviar este formulario confirmas tu aceptación con validez legal bajo la LSSI-CE. Esta acción queda registrada con fecha, hora e IP de acceso.</div>
-      <div class="error-msg" id="error-firma">Por favor, escribe tu nombre completo para confirmar.</div>
+      <label class="sign-label" for="firma-nombre">Confirma tu identidad</label>
+      <input type="text" class="sign-input" id="firma-nombre" placeholder="Nombre y apellidos" autocomplete="name" style="margin-bottom:10px;">
+      <input type="text" class="sign-input" id="firma-dni" placeholder="DNI / CIF" autocomplete="off">
+      <div class="sign-hint" style="margin-top:8px;">Al escribir tu nombre y enviar este formulario confirmas tu aceptación con validez legal bajo la LSSI-CE. Esta acción queda registrada con fecha, hora e IP de acceso.</div>
+      <div class="error-msg" id="error-firma">Por favor, escribe tu nombre completo y DNI/CIF para confirmar.</div>
     </div>
 
     <button class="submit-btn" id="btn-confirmar" onclick="submitConfirmacion()">
@@ -345,7 +356,7 @@
     </div>
   </div>
 
-  <!-- Success screen -->
+  <!-- Pantalla d'èxit -->
   <div class="container success-screen" id="success-screen">
     <div class="success-icon">
       <svg viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2.5">
@@ -359,41 +370,28 @@
   </div>
 
   <script>
-    // Pre-fill participant data from URL params (GHL sends these in the email link)
+    // Pre-omplir dades del participant via URL params (GHL les envia a l'email)
     const params = new URLSearchParams(window.location.search);
     const firstName = params.get('first_name') || '';
-    const lastName = params.get('last_name') || '';
-    const email = params.get('email') || '';
-    const specialty = params.get('specialty') || '';
-    const contactId = params.get('contact_id') || '';
-    const fullName = [firstName, lastName].filter(Boolean).join(' ') || 'Profesional';
+    const lastName  = params.get('last_name')  || '';
+    const email     = params.get('email')       || '';
+    const specialty = params.get('specialty')   || '';
+    const contactId = params.get('contact_id')  || '';
+    const fullName  = [firstName, lastName].filter(Boolean).join(' ') || 'Profesional';
 
-    document.getElementById('display-name').textContent = fullName || '—';
+    document.getElementById('display-name').textContent   = fullName || '—';
     document.getElementById('display-detail').textContent = [specialty, email].filter(Boolean).join(' · ') || '—';
 
-    // GHL webhook URL for confirmation (update with your actual webhook)
+    // GHL webhook per registrar la confirmació
     const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/OtSoCnSUJJBfnTX1qznq/webhook-trigger/ee342d57-617a-457c-912e-d19c52481081';
 
     function validateForm() {
       let valid = true;
 
-      // Validar opció de beca seleccionada
-      const opcioSeleccionada = document.querySelector('input[name="opcion-beca"]:checked');
-      const errorOpcio = document.getElementById('error-opcion');
-      if (!opcioSeleccionada) {
-        errorOpcio.style.display = 'block';
-        document.getElementById('label-opcion').style.outline = '2px solid #c0392b';
-        document.getElementById('label-opcion').style.borderRadius = '8px';
-        valid = false;
-      } else {
-        errorOpcio.style.display = 'none';
-        document.getElementById('label-opcion').style.outline = '';
-      }
-
       const required = [
-        { id: 'check-terms', labelId: 'label-terms' },
+        { id: 'check-terms',    labelId: 'label-terms'    },
         { id: 'check-compromis', labelId: 'label-compromis' },
-        { id: 'check-privacy', labelId: 'label-privacy' }
+        { id: 'check-privacy',  labelId: 'label-privacy'  }
       ];
 
       required.forEach(({ id, labelId }) => {
@@ -403,8 +401,9 @@
       });
 
       const firma = document.getElementById('firma-nombre').value.trim();
+      const dni   = document.getElementById('firma-dni').value.trim();
       const errorFirma = document.getElementById('error-firma');
-      if (!firma || firma.length < 3) {
+      if (!firma || firma.length < 3 || !dni || dni.length < 5) {
         errorFirma.style.display = 'block';
         valid = false;
       } else {
@@ -421,45 +420,43 @@
       btn.disabled = true;
       btn.textContent = 'Enviando confirmación…';
 
-      const firma = document.getElementById('firma-nombre').value.trim();
+      const firma            = document.getElementById('firma-nombre').value.trim();
+      const dni              = document.getElementById('firma-dni').value.trim();
       const marketingConsent = document.getElementById('check-marketing').checked;
-      const opcioTriada = document.querySelector('input[name="opcion-beca"]:checked')?.value || '';
-      const timestamp = new Date().toISOString();
+      const timestamp        = new Date().toISOString();
 
       const payload = {
-        contact_id: contactId,
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        specialty: specialty,
-        firma_nombre: firma,
-        timestamp_confirmacion: timestamp,
-        opcion_beca: opcioTriada,
-        accepted_terms: true,
-        accepted_compromis: true,
-        accepted_privacy: true,
-        marketing_consent: marketingConsent,
-        programa: 'AMBIOTA Academy Beca 2026'
+        contact_id:              contactId,
+        first_name:              firstName,
+        last_name:               lastName,
+        email:                   email,
+        specialty:               specialty,
+        firma_nombre:            firma,
+        dni_cif:                 dni,
+        timestamp_confirmacion:  timestamp,
+        accepted_terms:          true,
+        accepted_compromis:      true,
+        accepted_privacy:        true,
+        marketing_consent:       marketingConsent,
+        programa:                'AMBIOTA Academy Beca 2026'
       };
 
       try {
         await fetch(GHL_WEBHOOK, {
-          method: 'POST',
+          method:  'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body:    JSON.stringify(payload)
         });
       } catch (e) {
         console.error('Webhook error:', e);
       }
 
-      // Show success
-      document.getElementById('main-form').style.display = 'none';
+      document.getElementById('main-form').style.display    = 'none';
       document.getElementById('success-screen').style.display = 'block';
-      document.getElementById('success-name').textContent = firma;
+      document.getElementById('success-name').textContent   = firma;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Reset validation styles on checkbox change
     ['check-terms', 'check-compromis', 'check-privacy'].forEach((id, i) => {
       const labelId = ['label-terms', 'label-compromis', 'label-privacy'][i];
       document.getElementById(id).addEventListener('change', () => {
