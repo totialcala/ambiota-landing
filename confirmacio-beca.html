@@ -383,8 +383,9 @@
     document.getElementById('display-detail').textContent = [specialty, email].filter(Boolean).join(' · ') || '—';
 
     // GHL webhook per registrar la confirmació
-    const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/OtSoCnSUJJBfnTX1qznq/webhook-trigger/ee342d57-617a-457c-912e-d19c52481081';
-
+    // const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/OtSoCnSUJJBfnTX1qznq/webhook-trigger/ee342d57-617a-457c-912e-d19c52481081';
+    const API_ENDPOINT = '/api/confirm-beca';
+    
     function validateForm() {
       let valid = true;
 
