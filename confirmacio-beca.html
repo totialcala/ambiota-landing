@@ -446,7 +446,7 @@
       };
 
       try {
-        await fetch(GHL_WEBHOOK, {
+        await fetch(API_ENDPOINT, {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify(payload)
