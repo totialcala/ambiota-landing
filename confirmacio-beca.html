@@ -132,7 +132,7 @@
     </div>
 
     <h1>Formaliza tu beca de formación</h1>
-    <p class="subtitle">Revisa las condiciones, acepta el compromiso y confirma tu plaza. Solo te llevará 2 minutos.</p>
+    <p class="subtitle">Revisa las condiciones de tu plaza becada y confirma tu acceso. Solo te llevará 2 minutos.</p>
 
     <!-- Dades del participant (pre-omplertes via URL params) -->
     <div class="participant-card">
@@ -169,16 +169,16 @@
       </div>
 
       <div class="compromis-unic">
-        <div class="cu-title">⚡ Tu compromiso de beca</div>
-        <p>Accedes al programa completo <strong>sin coste inicial</strong>. A cambio, te comprometes a prescribir un mínimo de <strong>4 tests de microbiota AMBIOTA</strong> o <strong>6 tests PCR AMBIOTA</strong> a tus pacientes a lo largo del programa.</p>
-        <p>Si al finalizar el programa no se ha alcanzado ese número, se facturará el precio oficial del programa de <strong>1.500 € + IVA</strong>.</p>
+        <div class="cu-title">⚡ Tu plaza becada</div>
+        <p>Accedes al programa completo <strong>con matrícula 0 €</strong>. AMBIOTA asume el coste de esta edición para acercar la microbiota clínica a más profesionales de la salud.</p>
+        <p>No existe compromiso de prescribir un número mínimo de tests. El único compromiso es formarte con rigor, participar de forma responsable y aplicar el conocimiento con criterio clínico.</p>
       </div>
 
       <!-- Tensió baixa: context de valor -->
       <div style="background:#f0f7f0;border:1px solid rgba(45,90,27,0.15);border-radius:10px;padding:18px 22px;margin-top:12px;">
         <p style="font-size:13px;color:#2d5a1b;font-weight:700;margin-bottom:8px;">Ponlo en perspectiva</p>
-        <p style="font-size:14px;color:#4a4a4a;line-height:1.6;margin-bottom:6px;">Estás accediendo a <strong>5 meses de formación especializada</strong> valorada en 1.500 €. El compromiso es prescribir 4 tests a lo largo de todo ese tiempo — es decir, <strong>menos de 1 test al mes</strong>.</p>
-        <p style="font-size:14px;color:#4a4a4a;line-height:1.6;margin:0;">Cualquier profesional que aplique lo aprendido en el primer módulo ya habrá cubierto eso con creces. La condición no es un sacrificio — <strong>es casi simbólica.</strong></p>
+        <p style="font-size:14px;color:#4a4a4a;line-height:1.6;margin-bottom:6px;">Estás accediendo a <strong>5 meses de formación especializada</strong> valorada en 1.500 €.</p>
+        <p style="font-size:14px;color:#4a4a4a;line-height:1.6;margin:0;">AMBIOTA impulsa esta beca porque una mejor formación profesional se traduce en mejores preguntas, mejores decisiones y una atención más útil para los pacientes.</p>
       </div>
     </div>
 
@@ -254,7 +254,7 @@
         <p>El Programa de Formación AMBIOTA Academy es un programa formativo online de aproximadamente 5 meses de duración (abril–septiembre 2026), dirigido exclusivamente a profesionales de la salud (médicos, nutricionistas, enfermeros, farmacéuticos, profesionales de PNI Clínica y afines), diseñado para capacitarles en la interpretación clínica del test de microbiota intestinal de AMBIOTA.</p>
 
         <h3>2. Funcionamiento de la beca</h3>
-        <p>El participante becado accede al programa de formación completo sin coste inicial. Como contrapartida, el participante se compromete a prescribir un mínimo de <strong>4 tests de microbiota AMBIOTA</strong> o <strong>6 tests PCR AMBIOTA</strong> a sus pacientes durante el período del programa. Si al finalizar el programa no se ha alcanzado ese número de prescripciones, AMBIOTA facturará el precio oficial del programa de 1.500 € + IVA.</p>
+        <p>El participante becado accede al programa de formación completo con matrícula 0 €. AMBIOTA asume el coste de la plaza becada para facilitar el acceso a formación especializada en microbiota clínica a profesionales de la salud seleccionados. La beca no exige prescribir un número mínimo de tests ni genera una obligación de compra o recomendación comercial.</p>
 
         <h3>3. Proceso de admisión</h3>
         <p>La confirmación de plaza es comunicada por escrito por el equipo AMBIOTA. AMBIOTA se reserva el derecho de admisión en función del perfil profesional y la disponibilidad de plazas.</p>
@@ -321,7 +321,7 @@
 
       <label class="check-label required-check" id="label-compromis">
         <input type="checkbox" id="check-compromis">
-        <span>Entiendo y acepto el compromiso de prescripción de la beca: prescribir un mínimo de <strong>4 tests de microbiota AMBIOTA</strong> o <strong>6 tests PCR AMBIOTA</strong> durante el programa. En caso de no cumplirlo sin causa justificada, se me facturará el precio oficial del programa de <strong>1.500 € + IVA</strong>.</span>
+        <span>Entiendo y acepto las condiciones de la plaza becada: el programa está valorado en <strong>1.500 € + IVA</strong>, mi matrícula becada es de <strong>0 €</strong> y no existe compromiso de prescripción mínima de tests.</span>
       </label>
 
       <label class="check-label required-check" id="label-privacy">
@@ -382,10 +382,9 @@
     document.getElementById('display-name').textContent   = fullName || '—';
     document.getElementById('display-detail').textContent = [specialty, email].filter(Boolean).join(' · ') || '—';
 
-    // GHL webhook per registrar la confirmació
-    // const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/OtSoCnSUJJBfnTX1qznq/webhook-trigger/ee342d57-617a-457c-912e-d19c52481081';
+    // Endpoint serverless (Vercel) — gestiona webhook + actualització camps GHL
     const API_ENDPOINT = '/api/confirm-beca';
-    
+
     function validateForm() {
       let valid = true;
 
@@ -452,7 +451,7 @@
           body:    JSON.stringify(payload)
         });
       } catch (e) {
-        console.error('Webhook error:', e);
+        console.error('API error:', e);
       }
 
       document.getElementById('main-form').style.display    = 'none';

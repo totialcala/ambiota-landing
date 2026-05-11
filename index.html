@@ -4,23 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMBIOTA Academy — Programa de Especialización en Microbiota Intestinal</title>
-<!-- Meta Pixel AMBIOTA -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '790350053708990');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel AMBIOTA -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -92,6 +75,30 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
     background: var(--green);
     border-radius: 50%;
     box-shadow: none;
+  }
+
+  .active-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(14,40,0,0.08);
+    border: 1px solid rgba(14,40,0,0.18);
+    border-radius: 100px;
+    padding: 9px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .active-stamp::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 4px rgba(14,40,0,0.08);
+    flex-shrink: 0;
   }
 
   h2 {
@@ -282,6 +289,17 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
     font-weight: 500;
     color: var(--green);
     margin-bottom: 28px;
+  }
+  .hero-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .hero-badge-row .hero-badge,
+  .hero-badge-row .active-stamp {
+    margin-bottom: 0;
   }
   .hero-badge-dot {
     width: 20px; height: 20px;
@@ -576,6 +594,89 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   }
   .sol-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
   .sol-desc { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+
+  .session-recaps {
+    margin-top: 54px;
+    padding: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .session-recaps-head {
+    max-width: 720px;
+    margin-bottom: 24px;
+  }
+  .session-recaps-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 34px;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .session-recaps-title em {
+    color: var(--green);
+    font-style: italic;
+  }
+  .session-recaps-sub {
+    color: var(--text-2);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .recap-list {
+    display: grid;
+    gap: 10px;
+  }
+  .recap-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    overflow: hidden;
+  }
+  .recap-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px 20px;
+    color: var(--text);
+    font-weight: 700;
+  }
+  .recap-item summary::-webkit-details-marker { display: none; }
+  .recap-item summary::after {
+    content: '▾';
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(14,40,0,0.08);
+    color: var(--green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .recap-item[open] summary::after { transform: rotate(180deg); }
+  .recap-body {
+    padding: 0 20px 22px;
+    color: var(--text-2);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .recap-body p {
+    margin-bottom: 14px;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .recap-body ol {
+    display: grid;
+    gap: 12px;
+    padding-left: 22px;
+  }
+  .recap-body li { padding-left: 4px; }
+  .recap-body li strong { color: var(--text); }
 
   /* ─── WHAT YOU GET ─── */
   .what-section { background: var(--bg-2); }
@@ -982,6 +1083,164 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   .testimonial-name { font-size: 13px; font-weight: 600; color: var(--text); }
   .testimonial-role { font-size: 11px; color: var(--text-3); }
 
+  /* ─── COMMUNITY PROOF ─── */
+  .community-proof-section {
+    background: var(--bg);
+    position: relative;
+  }
+  .community-proof-inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 54px;
+    align-items: center;
+  }
+  .community-proof-copy {
+    max-width: 520px;
+  }
+  .community-proof-stamp { margin-bottom: 18px; }
+  .community-proof-copy .lead {
+    margin-bottom: 24px;
+  }
+  .community-proof-points {
+    display: grid;
+    gap: 12px;
+    margin: 28px 0 0;
+  }
+  .community-proof-point {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+  }
+  .community-proof-point:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .community-proof-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .community-proof-point strong {
+    display: block;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .community-proof-point span {
+    display: block;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+  .community-proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--border);
+    margin-top: 32px;
+  }
+  .community-proof-stat {
+    background: var(--surface);
+    padding: 18px 14px;
+  }
+  .community-proof-stat strong {
+    display: block;
+    font-family: 'Instrument Serif', serif;
+    font-size: 34px;
+    line-height: 1;
+    color: var(--green);
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .community-proof-stat span {
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--text-3);
+  }
+  .community-proof-media {
+    display: block;
+    width: 100%;
+    padding: 0;
+    cursor: zoom-in;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(14,40,0,0.18);
+    background: #1f1f1f;
+    box-shadow: 0 24px 80px rgba(14,40,0,0.14);
+    appearance: none;
+    text-align: inherit;
+  }
+  .community-proof-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .calendar-objection {
+    margin: 22px 0 34px;
+    padding: 18px 22px;
+    background: rgba(14,40,0,0.05);
+    border: 1px solid rgba(14,40,0,0.14);
+    border-radius: var(--radius);
+    color: var(--text-2);
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 780px;
+  }
+  .calendar-objection strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(10, 14, 8, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .image-lightbox.open { display: flex; }
+  .image-lightbox-content {
+    position: relative;
+    width: min(1180px, 94vw);
+    max-height: 88vh;
+  }
+  .image-lightbox img {
+    display: block;
+    width: 100%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 100px rgba(0,0,0,0.35);
+  }
+  .image-lightbox-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: #F7F5F0;
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+
   /* ─── FAQ ─── */
   .faq-list {
     max-width: 740px;
@@ -1198,6 +1457,24 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   @media (max-width: 600px) {
     .container { padding: 0 20px; }
     .section { padding: 64px 0; }
+    .active-stamp { font-size: 10px; padding: 8px 12px; }
+    .hero-badge-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .session-recaps { padding: 24px 18px; }
+    .session-recaps-title { font-size: 28px; }
+    .recap-item summary { padding: 16px; align-items: flex-start; }
+    .recap-body { padding: 0 16px 18px; }
+    .image-lightbox { padding: 14px; }
+    .image-lightbox-content { width: 96vw; }
+    .image-lightbox-close {
+      top: 8px;
+      right: 8px;
+      width: 34px;
+      height: 34px;
+    }
   }
 
   @media (max-width: 900px) {
@@ -1217,6 +1494,8 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
     .beca-inner { grid-template-columns: 1fr; }
     .beca-card { position: static; }
     .testimonials-grid { grid-template-columns: 1fr; }
+    .community-proof-inner { grid-template-columns: 1fr; }
+    .community-proof-copy { max-width: none; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .nav-links { display: none; }
     .winwin-grid { grid-template-columns: 1fr; }
@@ -1276,9 +1555,12 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content animate-in">
-        <div class="hero-badge">
-          <div class="hero-badge-dot">✦</div>
-          Programa de Especialización · Edición 2026
+        <div class="hero-badge-row">
+          <div class="hero-badge">
+            <div class="hero-badge-dot">✦</div>
+            Programa de Especialización · Edición 2026
+          </div>
+          <div class="active-stamp">Formación y comunidad activas</div>
         </div>
         <h1>El problema no es hacer el test.<br>Es <em>saber aplicarlo</em> a consulta.</h1>
         <p class="hero-sub">
@@ -1288,7 +1570,7 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
           <div class="hero-bullet">El único test clínicamente validado con 3 estudios publicados</div>
           <div class="hero-bullet">Formación 100% online, adaptable a tu agenda de consulta</div>
           <div class="hero-bullet">Casos clínicos reales guiados por Dra. Nadia, Verónica y Joel</div>
-          <div class="hero-bullet">Beca disponible: matrícula de 1.500€ con coste final de 0€ si prescribes 4 tests</div>
+          <div class="hero-bullet">Beca de acceso: formación valorada en 1.500€ con matrícula 0€ para profesionales seleccionados</div>
         </div>
         <div class="hero-ctas">
           <a href="#" class="btn btn-primary">Solicitar beca ahora →</a>
@@ -1305,28 +1587,28 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
         <div class="hero-card-price">
           <div class="original">1.500€</div>
           <span class="final">0€</span>
-          <div class="final-note">coste final si prescribes 4 tests</div>
+          <div class="final-note">plaza becada para profesionales de la salud</div>
         </div>
         <div class="hero-card-steps">
           <div class="hero-step">
             <div class="hero-step-num">1</div>
             <div class="hero-step-text">
-              <strong>Matricúlate</strong>
-              Accede al programa completo desde el primer día.
+              <strong>Solicita tu plaza</strong>
+              Cuéntanos tu perfil profesional y tu interés clínico.
             </div>
           </div>
           <div class="hero-step">
             <div class="hero-step-num">2</div>
             <div class="hero-step-text">
-              <strong>Aplícalo en consulta</strong>
-              Prescribe 4 tests de microbiota AMBIOTA y AYUDA a los pacientes que realmente lo necesiten. Sin presiones, con criterio clínico.
+              <strong>Accede a la beca</strong>
+              AMBIOTA asume el coste para acercar esta formación a más profesionales.
             </div>
           </div>
           <div class="hero-step">
             <div class="hero-step-num">3</div>
             <div class="hero-step-text">
-              <strong>Coste final: 0€</strong>
-              Tu matrícula queda 100% amortizada.
+              <strong>Fórmate por 0€</strong>
+              Sin compromiso de prescripción. Solo conocimiento aplicable.
             </div>
           </div>
         </div>
@@ -1435,6 +1717,47 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
         <div class="sol-num">03</div>
         <div class="sol-title">Casos clínicos reales</div>
         <div class="sol-desc">Trabajo con casos concretos, no con teoría aislada. Aprende a tomar decisiones clínicas en situaciones reales y complejas.</div>
+      </div>
+    </div>
+    <div class="session-recaps">
+      <div class="session-recaps-head">
+        <div class="label">Ya estamos trabajando dentro</div>
+        <div class="session-recaps-title">Esto es una muestra de lo que se ve <em>desde las primeras clases</em></div>
+        <p class="session-recaps-sub">Para que no tengas que imaginar el contenido: estos son algunos aprendizajes clave de las sesiones iniciales. Al entrar tendrás acceso a las grabaciones y podrás ponerte al día.</p>
+      </div>
+      <div class="recap-list">
+        <details class="recap-item">
+          <summary>Clase 1 · Bases, mucosa y eje oral-intestinal</summary>
+          <div class="recap-body">
+            <p>Resumen de la sesión en puntos clave:</p>
+            <ol>
+              <li><strong>La herramienta más útil no es ninguna prueba de laboratorio.</strong> Es pedir al paciente que describa un día tipo completo: horarios, qué come, dónde, en qué estado. El 90% de la información clínica relevante ya está ahí.</li>
+              <li><strong>El origen del síntoma no siempre está donde duele.</strong> Los problemas digestivos recidivan cuando no se aborda la causa raíz: capacidad ácida, función pancreática, función hepatobiliar. Tratar solo el síntoma no resuelve.</li>
+              <li><strong>Las intolerancias suelen ser secundarias.</strong> El problema no es el alimento: es la mucosa dañada donde están las enzimas que lo procesan. Eliminar el alimento sin reparar la mucosa no resuelve nada.</li>
+              <li><strong>La barrera intestinal es un sistema de compuertas, no un muro.</strong> Las uniones estrechas entre enterocitos se abren y cierran. Cuando el sistema mucosa-sistema nervioso-sistema inmune se desequilibra, se activa la inflamación y empieza la disbiosis.</li>
+              <li><strong>La metagenómica detecta ADN, no colonización activa.</strong> Una bacteria que aparece en el informe puede estar en tránsito pasivo. Siempre hay que interpretar las abundancias relativas en contexto clínico.</li>
+              <li><strong>La boca es un ecosistema con impacto sistémico.</strong> Lo que está arriba está abajo: el eje oral-intestinal es bidireccional. Tragamos litros de saliva al día. La disbiosis oral puede generar inflamación sistémica, alterar la barrera intestinal y aparecer en el test de microbiota intestinal.</li>
+              <li><strong>Preguntar siempre por la boca en consulta.</strong> Sangrado de encías, aftas de repetición, mal aliento, caries frecuentes, capa blanca en lengua, boca seca, respiración oral nocturna: son señales de disbiosis oral que impactan en todo el sistema.</li>
+              <li><strong>Primero reparar mucosa, luego limpiar.</strong> Antes de usar cualquier antimicrobiano, incluso herbal, preparar el terreno: zinc-carnosina, glutamina, omega-7, probióticos específicos para mucosa oral.</li>
+            </ol>
+          </div>
+        </details>
+        <details class="recap-item">
+          <summary>Clase 2 · ERGE, gastritis e interpretación clínica</summary>
+          <div class="recap-body">
+            <p>Resumen de la sesión en 8 puntos clave:</p>
+            <ol>
+              <li><strong>El eje intestino-cerebro siempre está presente.</strong> El estrés suprime directamente la producción de ácido gástrico. Antes de intervenir en microbiota, hay que atender el sistema nervioso.</li>
+              <li><strong>Tener ardor o acidez no significa tener exceso de ácido.</strong> La hipoclorhidria, poco ácido, es mucho más frecuente y genera picos compensatorios. Los IBP pueden empeorar el problema de base.</li>
+              <li><strong>El ácido gástrico es la primera barrera defensiva.</strong> Sin suficiente ácido, entran más patógenos, se absorbe peor B12, hierro y zinc, y se altera toda la digestión por efecto dominó.</li>
+              <li><strong>H. pylori: patógeno facultativo, no siempre enemigo.</strong> Más del 40% de la población lo tiene, pero la mayoría son colonizaciones asintomáticas. La clave clínica es distinguir colonización de infección activa.</li>
+              <li><strong>No basta un test positivo para erradicar.</strong> Recomendación práctica: antígeno en heces positivo, confirmar siempre con test de aliento antes de prescribir antibióticos.</li>
+              <li><strong>El tratamiento de erradicación es una bomba para la microbiota.</strong> Claritromicina y metronidazol durante 14 días destruyen diversidad bacteriana y favorecen SIBO de metano. Valorar siempre metagenómica post-tratamiento.</li>
+              <li><strong>Antes del antibiótico, explorar alternativas.</strong> Herbáceos antimicrobianos, protección de mucosa con zinc-carnosina y probióticos específicos como L. reuteri o Pylori PAS pueden ser el primer paso.</li>
+              <li><strong>Si hay erradicación antibiótica, acompañar siempre.</strong> Probióticos durante y después, cuidado de mucosa, corrección de B12, hierro y zinc, y test de metagenómica para ver cómo ha quedado la flora.</li>
+            </ol>
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -1691,6 +2014,9 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   <div class="container">
     <div class="label">Formato · 18 sesiones en 6 meses</div>
     <h2>Una sesión semanal de 1,5h.<br><em>De Abril a Septiembre 2026.</em></h2>
+    <div class="calendar-objection">
+      <strong>¿El programa ya ha empezado? No llegas tarde.</strong> Puedes incorporarte ahora con acceso a las sesiones grabadas, materiales acumulados y comunidad activa desde el primer día. La formación está pensada para que puedas ponerte al día sin perder el hilo.
+    </div>
     <div class="calendar-inner">
 
       <!-- VISUAL PRINCIPAL -->
@@ -1807,8 +2133,7 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
         <div style="height:1px; background:var(--border); margin-bottom:20px;"></div>
         <a href="#" class="btn btn-primary" style="width:100%; justify-content:center; margin-bottom:12px;">Reservar plaza →</a>
         <div style="text-align:center; padding:12px; background:rgba(14,40,0,0.04); border-radius:8px; border:1px solid rgba(14,40,0,0.08);">
-          <div style="font-size:12px; color:var(--text-2); font-weight:600;">Inicio: 15 Abril · 14:00h</div>
-          <div style="font-size:11px; color:var(--text-3); margin-top:2px;">Plazas con beca limitadas</div>
+          <div style="font-size:12px; color:var(--text-2); font-weight:600;">Plazas con beca limitadas</div>
         </div>
       </div>
 
@@ -1821,53 +2146,53 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   <div class="container">
     <div class="beca-inner">
       <div>
-        <div class="label">Cómo funciona la beca</div>
-        <h2>Una formación de 1.500€<br>con <em>coste final 0€</em></h2>
-        <p class="lead" style="margin-bottom: 0;">En lugar de ofrecerte solo formación, te proponemos un modelo para que aprendas y lo apliques desde el primer día.</p>
+        <div class="label">Por qué existe la beca</div>
+        <h2>Una formación de 1.500€<br>con <em>matrícula becada a 0€</em></h2>
+        <p class="lead" style="margin-bottom: 0;">Queremos acercar la microbiota clínica a más profesionales. Porque una mejor formación genera mejor criterio, mejores decisiones y una atención más útil para cada paciente.</p>
         <div class="beca-steps">
           <div class="beca-step">
             <div class="beca-step-icon">📚</div>
             <div class="beca-step-content">
               <div class="step-label">Paso 1</div>
-              <h4>Matricúlate</h4>
-              <p>Accede al programa completo. Desde el primer día tienes acceso total a todos los módulos, sesiones y materiales.</p>
+              <h4>Solicita tu beca</h4>
+              <p>Completa la solicitud y explícanos tu perfil profesional, tu especialidad y cómo quieres integrar la microbiota en consulta.</p>
             </div>
           </div>
           <div class="beca-step">
             <div class="beca-step-icon">🔬</div>
             <div class="beca-step-content">
               <div class="step-label">Paso 2</div>
-              <h4>Aplícalo en consulta</h4>
-              <p>Prescribe 4 tests de microbiota AMBIOTA a los pacientes que realmente lo necesiten. Sin presiones, con criterio clínico.</p>
+              <h4>Validamos tu plaza</h4>
+              <p>Revisamos cada solicitud para priorizar a profesionales que puedan aplicar el conocimiento de forma responsable y con impacto clínico real.</p>
             </div>
           </div>
           <div class="beca-step">
             <div class="beca-step-icon">✅</div>
             <div class="beca-step-content">
               <div class="step-label">Paso 3</div>
-              <h4>Coste final: 0€</h4>
-              <p>Una vez prescritos los 4 tests, el coste de tu matrícula queda 100% amortizado. Riesgo financiero cero.</p>
+              <h4>Accede por 0€</h4>
+              <p>Si tu perfil encaja, recibes acceso completo al programa sin compromiso de prescripción ni coste de matrícula.</p>
             </div>
           </div>
         </div>
       </div>
       <div class="beca-card" style="position: relative;">
-        <div class="beca-headline">Un modelo <em>win-win</em> real.</div>
-        <div class="beca-sub">No queremos diplomas que acumulen polvo. Queremos profesionales que apliquen el conocimiento en la vida real.</div>
+        <div class="beca-headline">Conocimiento que debe <em>llegar a consulta</em>.</div>
+        <div class="beca-sub">No queremos que la microbiota clínica quede reservada a unos pocos. Queremos profesionales mejor formados, con más criterio y más seguridad al tomar decisiones.</div>
         <div class="winwin-grid">
           <div class="winwin-box">
             <div class="winwin-title">🏥 Gana el Paciente</div>
-            <div class="winwin-desc">Recibe un diagnóstico mejor y un tratamiento basado en datos precisos.</div>
+            <div class="winwin-desc">Recibe una atención más precisa, con decisiones basadas en datos y una lectura clínica más rigurosa.</div>
           </div>
           <div class="winwin-box">
             <div class="winwin-title">👨‍⚕️ Ganas Tú</div>
-            <div class="winwin-desc">Formación médica de élite y herramienta diagnóstica avanzada sin coste real.</div>
+            <div class="winwin-desc">Accedes a una formación avanzada sin barrera económica y con aplicación directa en tu práctica profesional.</div>
           </div>
         </div>
         <div class="beca-zero">
-          <div class="beca-zero-label">Coste final del programa</div>
+          <div class="beca-zero-label">Matrícula con beca de acceso</div>
           <div class="beca-zero-price">0€</div>
-          <div class="beca-zero-note">si prescribes 4 tests · Riesgo financiero cero</div>
+          <div class="beca-zero-note">sin compromiso de prescripción · plazas limitadas</div>
         </div>
         <a href="#" class="btn btn-primary" style="width:100%; justify-content:center; margin-bottom:12px;" >Solicitar beca ahora →</a>
         <a href="https://wa.me/34621192568?text=Hola%2C%20me%20interesa%20la%20beca%20de%20AMBIOTA%20Academy%20y%20quisiera%20hablar%20con%20vuestro%20equipo." class="btn btn-ghost" style="width:100%; justify-content:center;" target="_blank">Hablar con el equipo antes</a>
@@ -1895,7 +2220,7 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
       </div>
       <div class="testimonial">
         <div class="testimonial-quote">"</div>
-        <div class="testimonial-text">La beca me permite entrar sin riesgo y empezar a integrar la microbiota con mis pacientes desde el primer día. Es una apuesta muy inteligente.</div>
+        <div class="testimonial-text">La beca elimina la barrera de entrada y me permite empezar a integrar la microbiota con mis pacientes desde el primer día. Es una apuesta muy inteligente.</div>
         <div class="testimonial-author">
           <div class="testimonial-avatar">👩‍🔬</div>
           <div>
@@ -1919,6 +2244,60 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
     <div style="text-align:center; margin-top: 40px;">
       <a href="#" class="btn btn-primary" >Yo también quiero formar parte de esta edición →</a>
       <p style="margin-top:10px; font-size:0.85em; color:#555; text-align:center;">y ver la demo del <strong>NUEVO test</strong> presentado</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY PROOF -->
+<section class="community-proof-section section">
+  <div class="container">
+    <div class="community-proof-inner">
+      <div class="community-proof-copy">
+        <div class="active-stamp community-proof-stamp">Formación y comunidad activas</div>
+        <div class="label">La academia ya está en marcha</div>
+        <h2>Más de 50 profesionales ya están dentro.<br><em>No te quedes fuera.</em></h2>
+        <p class="lead">No estás entrando en una promesa futura. AMBIOTA Academy ya es una comunidad activa de profesionales que comparten casos, resuelven dudas y avanzan juntos en la aplicación clínica de la microbiota.</p>
+        <div class="community-proof-points">
+          <div class="community-proof-point">
+            <div class="community-proof-dot"></div>
+            <div>
+              <strong>Comunidad privada</strong>
+              <span>Un espacio vivo para seguir el programa, recuperar sesiones, compartir preguntas y mantener el contacto con otros profesionales.</span>
+            </div>
+          </div>
+          <div class="community-proof-point">
+            <div class="community-proof-dot"></div>
+            <div>
+              <strong>Casos, papers y dudas de formación</strong>
+              <span>La formación no se queda en una clase aislada: se acompaña con discusión clínica, materiales y seguimiento entre sesiones.</span>
+            </div>
+          </div>
+          <div class="community-proof-point">
+            <div class="community-proof-dot"></div>
+            <div>
+              <strong>Plazas becadas limitadas</strong>
+              <span>Si quieres entrar en esta edición, este es el momento de solicitar tu acceso y sumarte al grupo que ya ha empezado.</span>
+            </div>
+          </div>
+        </div>
+        <div class="community-proof-stats">
+          <div class="community-proof-stat">
+            <strong>54</strong>
+            <span>profesionales dentro</span>
+          </div>
+          <div class="community-proof-stat">
+            <strong>3</strong>
+            <span>docentes principales</span>
+          </div>
+          <div class="community-proof-stat">
+            <strong>18</strong>
+            <span>sesiones de formación</span>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="community-proof-media" data-lightbox="community">
+        <img src="assets/ambiota-academy-community.png" alt="Comunidad privada de AMBIOTA Academy con 54 miembros">
+      </button>
     </div>
   </div>
 </section>
@@ -1957,7 +2336,7 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
           ¿Cómo funciona exactamente la beca?
           <div class="faq-chevron">▾</div>
         </button>
-        <div class="faq-answer">Te matriculas en el programa (1.500€), prescribes 4 tests de microbiota AMBIOTA a los pacientes que lo necesiten en tu consulta, y una vez prescritos esos 4 tests, el coste de tu matrícula queda 100% amortizado. Coste final del programa: 0€. (o bien alguno de nuestros otros tests PCR, etc.)</div>
+        <div class="faq-answer">El programa está valorado en 1.500€. En esta edición, AMBIOTA abre plazas becadas a 0€ para perfiles profesionales seleccionados. No hay compromiso de prescribir un número mínimo de tests: revisamos tu solicitud, validamos que encaja con el programa y te confirmamos la plaza disponible.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" >
@@ -2132,6 +2511,14 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   </div>
 </div>
 
+<!-- IMAGE LIGHTBOX -->
+<div class="image-lightbox" id="community-lightbox" aria-hidden="true">
+  <div class="image-lightbox-content">
+    <button type="button" class="image-lightbox-close" aria-label="Cerrar imagen">×</button>
+    <img src="assets/ambiota-academy-community.png" alt="Comunidad privada de AMBIOTA Academy con 54 miembros">
+  </div>
+</div>
+
 <script>
 (function() {
   // ── Modal ──────────────────────────────────────────────
@@ -2142,6 +2529,25 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
   function closeModal() {
     var m = document.getElementById('modal');
     if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+
+  function openLightbox() {
+    var lb = document.getElementById('community-lightbox');
+    if (lb) {
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeLightbox() {
+    var lb = document.getElementById('community-lightbox');
+    if (lb) {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      if (!document.getElementById('modal') || !document.getElementById('modal').classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+    }
   }
 
   // ── FAQ accordion ──────────────────────────────────────
@@ -2252,6 +2658,14 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
         e.preventDefault(); closeModal(); resetModal(); return;
       }
 
+      // Community image lightbox
+      if (t.getAttribute('data-lightbox') === 'community') {
+        e.preventDefault(); openLightbox(); return;
+      }
+      if (t.classList.contains('image-lightbox-close')) {
+        e.preventDefault(); closeLightbox(); return;
+      }
+
       // Overlay click to close
       if (t.id === 'modal') { closeModal(); return; }
 
@@ -2300,6 +2714,19 @@ src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"
         if (e.target === overlay) { closeModal(); resetModal(); }
       });
     }
+
+    var lightbox = document.getElementById('community-lightbox');
+    if (lightbox) {
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
 
     // Open first FAQ by default
     var firstFaq = document.querySelector('.faq-item');
