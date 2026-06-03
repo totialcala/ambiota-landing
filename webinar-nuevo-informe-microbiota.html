@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Webinar AMBIOTA | Nuevo informe clínico</title>
-  <meta name="description" content="Webinar para profesionales de la salud: descubre el nuevo informe clínico AMBIOTA, su lectura funcional, la síntesis asistida por IA y su uso en consulta.">
+  <title>Webinar AMBIOTA | Nuevo informe clínico + sorteo test microbiota</title>
+  <meta name="description" content="Webinar para profesionales de la salud: descubre el nuevo informe clínico AMBIOTA, su lectura funcional, la síntesis asistida por IA y participa en el sorteo de un test de microbiota.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -196,6 +196,77 @@
       background: var(--moss);
       box-shadow: 0 0 0 5px rgba(106,168,79,.14);
       flex: 0 0 auto;
+    }
+    .prize-card {
+      position: relative;
+      max-width: 600px;
+      margin: 0 0 22px;
+      padding: 18px 18px 16px;
+      overflow: hidden;
+      border: 1px solid rgba(194, 145, 61, .42);
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 94% 10%, rgba(194, 145, 61, .18), transparent 34%),
+        linear-gradient(135deg, rgba(255, 253, 248, .92), rgba(247, 244, 232, .96));
+      box-shadow: 0 18px 48px rgba(21, 23, 19, .1);
+      color: #2f321f;
+    }
+    .prize-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(14,40,0,.026) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(14,40,0,.02) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: .7;
+    }
+    .prize-kicker,
+    .prize-card h3,
+    .prize-card p,
+    .prize-terms {
+      position: relative;
+      z-index: 1;
+    }
+    .prize-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px;
+      color: #7b5420;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .prize-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 0 6px rgba(194,145,61,.16);
+    }
+    .prize-card h3 {
+      margin: 0 0 8px;
+      color: var(--soil);
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.12;
+    }
+    .prize-card p {
+      margin: 0;
+      color: #424638;
+      font-size: 15px;
+      line-height: 1.62;
+    }
+    .prize-card strong { color: var(--soil); }
+    .prize-terms {
+      display: block;
+      margin-top: 10px;
+      color: rgba(47, 50, 31, .66);
+      font-size: 11px;
+      line-height: 1.5;
     }
     .meta-row {
       display: grid;
@@ -742,6 +813,53 @@
       box-shadow: none;
     }
     .cta-band .btn-primary:hover { box-shadow: 0 18px 42px rgba(0,0,0,.18); }
+    .cta-band .prize-card {
+      width: min(680px, 100%);
+      margin: 28px 0 0;
+      padding: 24px 26px 22px;
+      border-color: rgba(194, 145, 61, .68);
+      background:
+        radial-gradient(circle at 94% 10%, rgba(194, 145, 61, .22), transparent 34%),
+        linear-gradient(135deg, rgba(255, 253, 248, .98), rgba(250, 244, 225, .98));
+      box-shadow: 0 24px 72px rgba(0, 0, 0, .18);
+    }
+    .cta-band .prize-card h3 {
+      max-width: 560px;
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.05;
+    }
+    .cta-band .prize-card p {
+      max-width: 600px;
+      font-size: 16px;
+      color: #30352b;
+    }
+    .cta-band .prize-terms {
+      max-width: 610px;
+      font-size: 12px;
+      color: rgba(47, 50, 31, .78);
+    }
+    .cta-prize {
+      margin-top: 24px;
+      max-width: 680px;
+      padding: 18px 20px;
+      border: 1px solid rgba(247,245,240,.18);
+      border-left: 5px solid var(--amber);
+      border-radius: 10px;
+      background: rgba(255, 253, 248, .08);
+    }
+    .cta-prize strong {
+      display: block;
+      color: var(--paper);
+      font-size: 17px;
+      line-height: 1.4;
+    }
+    .cta-prize span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(247,245,240,.72);
+      font-size: 12px;
+      line-height: 1.55;
+    }
 
     .sticky-cta {
       position: fixed;
@@ -782,6 +900,7 @@
       .btn { width: 100%; }
       .hero-copy { font-size: 16px; }
       .meta-row { grid-template-columns: 1fr; }
+      .prize-card { padding: 16px; }
       .hero-visual { min-height: 330px; }
       .report-card.primary { width: 100%; top: 48px; }
       .report-card.secondary { display: none; }
@@ -837,6 +956,14 @@
             <a class="btn btn-ghost" href="https://ambiota-report.vercel.app/demo">Ver demo del informe</a>
           </div>
           <p class="trust-note">Formación gratuita para profesionales de la salud: ven a entender el nuevo informe y a conocer la comunidad profesional AMBIOTA Academy.</p>
+          <aside class="prize-card" aria-label="Sorteo de un test de microbiota AMBIOTA">
+            <p class="prize-kicker">Sorteo para asistentes</p>
+            <h3>1 test de microbiota AMBIOTA valorado en 345 €</h3>
+            <p>
+              Entre todas las personas asistentes al webinar sortearemos <strong>un test de microbiota AMBIOTA</strong> para seguir llevando la microbiota clínica a la práctica.
+            </p>
+            <small class="prize-terms">Participación gratuita. Sorteo entre asistentes al webinar que sean profesionales de la salud. Test personal, no transferible y no canjeable por dinero. Bases y confirmación del sorteo sujetas a validación interna de AMBIOTA.</small>
+          </aside>
           <div class="meta-row" aria-label="Datos del webinar">
             <div class="meta-item"><span>Fecha</span><strong>Lunes 8 de junio</strong></div>
             <div class="meta-item"><span>Hora</span><strong>19:00 h</strong></div>
@@ -973,11 +1100,11 @@
           </figure>
           <figure class="voice-card">
             <blockquote>“Los casos y las sesiones compartidas me ayudan a trasladar la microbiota a decisiones más concretas en consulta.”</blockquote>
-            <figcaption class="voice-author" data-initial="N">Nombre por validar · AMBIOTA Academy</figcaption>
+            <figcaption class="voice-author" data-initial="M">Montse Font · Dietista · AMBIOTA Academy</figcaption>
           </figure>
           <figure class="voice-card">
             <blockquote>“Antes interpretar un informe de microbiota me generaba presión. Ahora, cuando aparece algo relacionado con el segundo cerebro, es una de mis prioridades clínicas.”</blockquote>
-            <figcaption class="voice-author" data-initial="N">Nombre por validar · AMBIOTA Academy</figcaption>
+            <figcaption class="voice-author" data-initial="B">Blanca Joseph · AMBIOTA Academy</figcaption>
           </figure>
         </div>
       </div>
@@ -1056,6 +1183,14 @@
           <p class="eyebrow" style="color:#d9e8d1;">Plazas abiertas</p>
           <h2>Reserva tu plaza para la presentación del nuevo informe AMBIOTA.</h2>
           <p>Sesión online para profesionales de la salud. Al registrarte en Zoom recibirás automáticamente el enlace de acceso.</p>
+          <aside class="prize-card" aria-label="Sorteo de un test de microbiota AMBIOTA">
+            <p class="prize-kicker">Sorteo para asistentes</p>
+            <h3>1 test de microbiota AMBIOTA valorado en 345 €</h3>
+            <p>
+              Entre todas las personas asistentes al webinar sortearemos <strong>un test de microbiota AMBIOTA</strong> para seguir llevando la microbiota clínica a la práctica.
+            </p>
+            <small class="prize-terms">Participación gratuita. Sorteo entre asistentes al webinar que sean profesionales de la salud. Test personal, no transferible y no canjeable por dinero. Bases y confirmación del sorteo sujetas a validación interna de AMBIOTA.</small>
+          </aside>
           <a class="official-link" href="https://www.ambiota.com/">Visitar la web oficial de AMBIOTA</a>
         </div>
         <a class="btn btn-primary" href="https://us06web.zoom.us/meeting/register/ma4yFuYFSDiTJqA5Mlq8cA">Reservar plaza en Zoom</a>
@@ -1064,7 +1199,7 @@
   </main>
 
   <div class="sticky-cta">
-    <span>Webinar · Lunes 8 de junio · Zoom</span>
+    <span>Webinar · Lunes 8 de junio · 19:00 h · Zoom</span>
     <a class="btn btn-primary" href="https://us06web.zoom.us/meeting/register/ma4yFuYFSDiTJqA5Mlq8cA">Reservar plaza</a>
   </div>
   <script>
