@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webinar AMBIOTA | Nuevo informe clínico</title>
+  <meta name="description" content="Webinar para profesionales de la salud: descubre el nuevo informe clínico AMBIOTA, su lectura funcional, la síntesis asistida por IA y su uso en consulta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --soil: #0e2800;
+      --moss: #6aa84f;
+      --leaf: #8fba68;
+      --ink: #151713;
+      --muted: #5f675a;
+      --mist: #eef3ea;
+      --paper: #fffdf8;
+      --chalk: #f7f5f0;
+      --line: rgba(14, 40, 0, .14);
+      --amber: #c2913d;
+      --berry: #b74562;
+      --blue: #335f77;
+      --shadow: 0 28px 80px rgba(21, 23, 19, .18);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--chalk);
+      color: var(--ink);
+      font-family: Inter, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+      opacity: .13;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 245, 240, .92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(14,40,0,.14);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(14,40,0,.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(14,40,0,.035) 1px, transparent 1px),
+        rgba(14, 40, 0, .9);
+      background-size: 16px 16px;
+      box-shadow: 0 12px 32px rgba(14, 40, 0, .13);
+      text-decoration: none;
+      color: var(--soil);
+      font-weight: 800;
+      letter-spacing: .08em;
+      font-size: 18px;
+    }
+    .brand img { width: 154px; height: auto; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.2;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn-primary {
+      background: var(--soil);
+      color: var(--paper);
+      box-shadow: 0 14px 34px rgba(14, 40, 0, .22);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(14, 40, 0, .28); }
+    .btn-ghost { color: var(--soil); border-color: var(--line); background: rgba(255,255,255,.5); }
+    .btn-ghost:hover { background: var(--paper); transform: translateY(-1px); }
+
+    .hero {
+      position: relative;
+      min-height: auto;
+      display: grid;
+      align-items: start;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(14,40,0,.07) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(14,40,0,.05) 1px, transparent 1px),
+        var(--chalk);
+      background-size: 42px 42px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(460px, 1.14fr);
+      gap: 52px;
+      align-items: center;
+      padding: 78px 0 74px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--soil);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--moss);
+      box-shadow: 0 0 0 6px rgba(106,168,79,.16);
+    }
+    h1 {
+      margin: 0 0 24px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(46px, 6vw, 78px);
+      line-height: .98;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+    h1 em { color: var(--soil); }
+    .hero-copy {
+      max-width: 560px;
+      margin: 0 0 28px;
+      color: #353b32;
+      font-size: 18px;
+      line-height: 1.72;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 28px; }
+    .trust-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 560px;
+      margin: -10px 0 24px;
+      padding: 10px 12px;
+      border: 1px solid rgba(106,168,79,.26);
+      border-radius: var(--radius);
+      background: rgba(237,246,231,.64);
+      color: #33402f;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .trust-note::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--moss);
+      box-shadow: 0 0 0 5px rgba(106,168,79,.14);
+      flex: 0 0 auto;
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 600px;
+    }
+    .meta-item {
+      background: rgba(255,255,255,.62);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 14px 13px;
+    }
+    .meta-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 4px;
+    }
+    .meta-item strong { font-size: 14px; color: var(--soil); }
+
+    .hero-visual {
+      position: relative;
+      min-height: 580px;
+      isolation: isolate;
+      perspective: 1200px;
+      --scroll-shift: 0px;
+      --repel-x: 0px;
+      --repel-y: 0px;
+    }
+    .report-stack {
+      position: absolute;
+      inset: 20px 0 0 0;
+      transform: translate3d(calc(var(--repel-x) * .18), calc(var(--scroll-shift) * .16 + var(--repel-y) * .18), 0);
+      transition: transform .55s cubic-bezier(.2,.8,.2,1);
+      will-change: transform;
+    }
+    .report-card {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid rgba(14,40,0,.14);
+      border-radius: 10px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      transform-style: preserve-3d;
+      transition: transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s cubic-bezier(.2,.8,.2,1);
+      will-change: transform;
+    }
+    .report-card.primary {
+      right: 0;
+      top: 36px;
+      width: min(700px, 100%);
+      transform: translate3d(calc(var(--repel-x) * -.42), calc(var(--scroll-shift) * -.36 + var(--repel-y) * -.34), 0) rotate(.8deg);
+    }
+    .report-card.secondary {
+      left: 0;
+      bottom: 20px;
+      width: min(410px, 58%);
+      transform: translate3d(calc(var(--repel-x) * .58), calc(var(--scroll-shift) * .42 + var(--repel-y) * .52), 42px) rotate(-3.5deg);
+      box-shadow: 0 22px 56px rgba(21,23,19,.14);
+    }
+    .floating-note {
+      position: absolute;
+      left: 32px;
+      top: 22px;
+      z-index: 3;
+      width: 250px;
+      padding: 16px 18px;
+      border: 1px solid rgba(14,40,0,.14);
+      border-left: 5px solid var(--moss);
+      border-radius: 8px;
+      background: rgba(255,253,248,.94);
+      box-shadow: 0 18px 48px rgba(21,23,19,.13);
+      color: #293026;
+      font-size: 13px;
+      font-weight: 700;
+      transform: translate3d(calc(var(--repel-x) * -.7), calc(var(--scroll-shift) * -.52 + var(--repel-y) * -.66), 80px);
+      transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s cubic-bezier(.2,.8,.2,1);
+      will-change: transform;
+    }
+    .floating-note span { display: block; color: var(--soil); font-size: 28px; line-height: 1; margin-bottom: 6px; }
+    .hero-visual:hover .report-card.primary { box-shadow: 0 34px 96px rgba(21, 23, 19, .2); }
+    .hero-visual:hover .report-card.secondary { box-shadow: 0 28px 68px rgba(21, 23, 19, .16); }
+
+    .section { padding: 92px 0; scroll-margin-top: 96px; }
+    .section.alt { background: var(--paper); border-block: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: .8fr 1fr; gap: 44px; align-items: end; margin-bottom: 42px; }
+    h2 {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.05;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .lead { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.75; }
+    .quote-card {
+      position: relative;
+      margin: 0;
+      padding: 6px 0 0 30px;
+      border-left: 5px solid var(--moss);
+      color: #364033;
+    }
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      top: -38px;
+      left: 12px;
+      color: rgba(106, 168, 79, .22);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 108px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .quote-card blockquote {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: #354032;
+      font-size: 18px;
+      line-height: 1.72;
+      font-weight: 500;
+    }
+    .quote-author {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .author-avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      background: var(--soil);
+      color: var(--paper);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      border: 5px solid rgba(255, 253, 248, .92);
+      box-shadow: 0 22px 52px rgba(14, 40, 0, .25);
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .quote-author strong {
+      display: block;
+      color: var(--soil);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    .quote-author span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+    .program .quote-card {
+      margin-top: 22px;
+      padding-left: 26px;
+      border-left-color: var(--amber);
+    }
+    .program .quote-card::before { color: rgba(194, 145, 61, .2); }
+    .program .quote-card blockquote { color: #495045; }
+    .program .author-avatar {
+      width: 96px;
+      height: 96px;
+      box-shadow: 0 18px 40px rgba(21, 23, 19, .18);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .feature {
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 220px;
+    }
+    .feature b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--soil);
+      color: var(--paper);
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+    .feature h3 { margin: 0 0 10px; color: var(--soil); font-size: 18px; line-height: 1.25; }
+    .feature p { margin: 0; color: #495045; font-size: 15px; line-height: 1.65; }
+
+    .doubt-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+      gap: 46px;
+      align-items: start;
+    }
+    .doubt-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .doubt-item {
+      min-height: 178px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .64);
+      transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+    }
+    .doubt-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(14,40,0,.22);
+      box-shadow: 0 18px 42px rgba(21, 23, 19, .08);
+    }
+    .doubt-item span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: rgba(106,168,79,.16);
+      color: var(--soil);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .doubt-item h3 {
+      margin: 0 0 8px;
+      color: var(--soil);
+      font-size: 17px;
+      line-height: 1.3;
+    }
+    .doubt-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+
+    .proof-section {
+      background: var(--paper);
+      border-block: 1px solid var(--line);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
+      gap: 44px;
+      align-items: center;
+    }
+    .proof-panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background:
+        linear-gradient(90deg, rgba(14,40,0,.026) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(14,40,0,.02) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(240, 247, 236, .82), rgba(255,253,248,.92));
+      background-size: 34px 34px;
+      box-shadow: 0 24px 68px rgba(21,23,19,.1);
+    }
+    .proof-quote {
+      margin: 22px 0 0;
+      padding-left: 26px;
+      border-left: 5px solid var(--moss);
+    }
+    .proof-quote blockquote {
+      margin: 0;
+      color: #354032;
+      font-size: 17px;
+      line-height: 1.68;
+      font-weight: 500;
+    }
+    .proof-quote .quote-author {
+      margin-top: 20px;
+    }
+    .proof-quote .author-avatar {
+      width: 94px;
+      height: 94px;
+    }
+    .proof-main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+    .proof-main strong {
+      color: var(--soil);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(78px, 8vw, 112px);
+      font-weight: 400;
+      line-height: .86;
+    }
+    .proof-main span {
+      display: block;
+      color: #354032;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .proof-main small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .community-voices {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .voice-card {
+      position: relative;
+      min-height: 235px;
+      padding: 20px 20px 18px;
+      border: 1px solid rgba(14,40,0,.12);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.72);
+      transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+    }
+    .voice-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(14,40,0,.22);
+      box-shadow: 0 18px 42px rgba(21, 23, 19, .08);
+    }
+    .voice-card blockquote {
+      margin: 0;
+      color: #354032;
+      font-size: 14px;
+      line-height: 1.62;
+      font-weight: 500;
+    }
+    .voice-author {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .voice-author::before {
+      content: attr(data-initial);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--moss);
+      color: var(--paper);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .inline-cta {
+      display: inline-flex;
+      margin-top: 24px;
+    }
+
+    .program {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 44px;
+      align-items: start;
+    }
+    .agenda {
+      border-left: 1px solid var(--line);
+      padding-left: 28px;
+    }
+    .agenda-item {
+      position: relative;
+      padding: 0 0 28px;
+    }
+    .agenda-item::before {
+      content: "";
+      position: absolute;
+      left: -34px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--moss);
+      box-shadow: 0 0 0 7px rgba(106,168,79,.16);
+    }
+    .agenda-item time {
+      color: var(--amber);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .agenda-item h3 { margin: 6px 0 8px; color: var(--soil); font-size: 21px; }
+    .agenda-item p { margin: 0; color: var(--muted); }
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .speaker {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.58);
+    }
+    .speaker strong { display: block; color: var(--soil); margin-bottom: 4px; }
+    .speaker span { color: var(--muted); font-size: 13px; }
+
+    .community-note {
+      position: relative;
+      overflow: hidden;
+      z-index: 4;
+      margin: -36px 0 -78px;
+      padding: 0;
+      pointer-events: none;
+    }
+    .community-note::before {
+      content: "";
+      position: absolute;
+      inset: -40px 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(106,168,79,.16), transparent 42%);
+    }
+    .community-grid {
+      position: relative;
+      width: min(700px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: .72fr 1fr;
+      gap: 28px;
+      align-items: center;
+      border: 1px solid rgba(14,40,0,.18);
+      border-radius: 10px;
+      background:
+        linear-gradient(90deg, rgba(14,40,0,.018) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(14,40,0,.014) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(241, 248, 237, .98), rgba(255, 253, 248, .96));
+      background-size: 34px 34px;
+      box-shadow: 0 28px 86px rgba(21, 23, 19, .18);
+      backdrop-filter: blur(14px);
+      pointer-events: auto;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .community-grid:hover {
+      transform: translateY(-2px);
+      border-color: rgba(14,40,0,.24);
+      box-shadow: 0 34px 96px rgba(21, 23, 19, .2);
+    }
+    .community-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      color: var(--soil);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .community-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--moss);
+      box-shadow: 0 0 0 6px rgba(106,168,79,.16);
+    }
+      .community-note h2 {
+      max-width: 320px;
+      font-size: clamp(24px, 2.45vw, 34px);
+    }
+    .community-copy {
+      margin: 0;
+      padding: 2px 0 2px 24px;
+      border-left: 4px solid var(--moss);
+      color: #364033;
+      font-size: 16px;
+      line-height: 1.68;
+      font-weight: 500;
+    }
+    .community-copy strong { color: var(--soil); }
+    .community-actions {
+      margin-top: 18px;
+      padding-left: 24px;
+    }
+    .community-link {
+      color: var(--soil);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .cta-band {
+      position: relative;
+      overflow: hidden;
+      background: var(--soil);
+      color: var(--paper);
+      padding: 112px 0 150px;
+    }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+    .cta-band h2 { color: var(--paper); max-width: 660px; }
+    .cta-band p { color: rgba(247,245,240,.78); margin: 16px 0 0; max-width: 620px; }
+    .official-link {
+      display: table;
+      margin: 18px auto 0;
+      color: rgba(247,245,240,.9);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+    .cta-band .btn-primary {
+      background: var(--paper);
+      color: var(--soil);
+      box-shadow: none;
+    }
+    .cta-band .btn-primary:hover { box-shadow: 0 18px 42px rgba(0,0,0,.18); }
+
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      z-index: 25;
+      transform: translateX(-50%);
+      width: min(720px, calc(100% - 28px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 12px 10px 18px;
+      border: 1px solid rgba(14,40,0,.18);
+      border-radius: 10px;
+      background: rgba(255,253,248,.95);
+      box-shadow: 0 18px 54px rgba(21,23,19,.18);
+      backdrop-filter: blur(14px);
+    }
+    .sticky-cta span { color: var(--soil); font-size: 13px; font-weight: 800; }
+
+    @media (max-width: 920px) {
+      .nav-links a:not(.btn) { display: none; }
+      .hero { min-height: auto; }
+      .hero-grid, .section-head, .doubt-grid, .proof-grid, .program, .community-grid, .cta-grid { grid-template-columns: 1fr; }
+      .hero-grid { padding-top: 48px; gap: 22px; }
+      .hero-visual { min-height: 440px; }
+      .report-card.primary { width: 92%; right: 0; top: 40px; }
+      .report-card.secondary { width: 54%; left: 0; bottom: 26px; }
+      .floating-note { top: 0; left: 6px; width: 220px; }
+      .quote-card { padding-left: 24px; }
+      .feature-grid, .doubt-list, .community-voices, .speaker-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 1160px); }
+      .nav-inner { min-height: 64px; }
+      .brand img { width: 136px; }
+      .btn { width: 100%; }
+      .hero-copy { font-size: 16px; }
+      .meta-row { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 330px; }
+      .report-card.primary { width: 100%; top: 48px; }
+      .report-card.secondary { display: none; }
+      .floating-note { position: relative; left: auto; top: auto; width: 100%; margin-bottom: 12px; }
+      .section { padding: 66px 0; }
+      .community-note { margin: -20px 0 -58px; }
+      .community-grid { width: min(100% - 28px, 700px); padding: 22px 20px; }
+      .community-copy { font-size: 15px; padding-left: 18px; }
+      .community-actions { padding-left: 18px; }
+      .cta-band { padding: 96px 0 176px; }
+      .quote-card blockquote { font-size: 18px; }
+      .quote-author { align-items: flex-start; }
+      .author-avatar { width: 92px; height: 92px; border-width: 4px; }
+      .feature { min-height: auto; }
+      .sticky-cta { align-items: stretch; flex-direction: column; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce), (hover: none) {
+      .report-stack,
+      .report-card,
+      .floating-note,
+      .community-grid {
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner shell">
+      <a class="brand" href="https://www.ambiota.com/" aria-label="AMBIOTA">
+        <img src="ambiota_logo_Web.png" alt="AMBIOTA">
+      </a>
+      <div class="nav-links">
+        <a href="#informe">Informe</a>
+        <a href="#programa">Programa</a>
+        <a href="#registro" class="btn btn-primary">Reservar plaza</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Webinar para profesionales de la salud</p>
+          <h1>Nuevo informe clínico <em>AMBIOTA</em></h1>
+          <p class="hero-copy">
+            Una sesión práctica para entender cómo leer el nuevo informe, priorizar señales clínicas y usar la síntesis asistida por IA como apoyo a la interpretación profesional.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://us06web.zoom.us/meeting/register/ma4yFuYFSDiTJqA5Mlq8cA">Reservar plaza</a>
+            <a class="btn btn-ghost" href="https://ambiota-report.vercel.app/demo">Ver demo del informe</a>
+          </div>
+          <p class="trust-note">Formación gratuita para profesionales de la salud: ven a entender el nuevo informe y a conocer la comunidad profesional AMBIOTA Academy.</p>
+          <div class="meta-row" aria-label="Datos del webinar">
+            <div class="meta-item"><span>Fecha</span><strong>Lunes 8 de junio</strong></div>
+            <div class="meta-item"><span>Hora</span><strong>19:00 h</strong></div>
+            <div class="meta-item"><span>Formato</span><strong>Online · Zoom</strong></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Capturas del nuevo informe AMBIOTA">
+          <div class="floating-note">
+            <span>IA</span>
+            Lectura funcional, priorización clínica y apoyo a la interpretación.
+          </div>
+          <div class="report-stack">
+            <figure class="report-card primary">
+              <img src="assets/report-demo/bioindicadores.png" alt="Visión global de bioindicadores del nuevo informe AMBIOTA">
+            </figure>
+            <figure class="report-card secondary">
+              <img src="assets/report-demo/mapa-funcional.png" alt="Mapa de resultados funcionales del nuevo informe AMBIOTA">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="informe">
+      <div class="shell">
+        <div class="section-head">
+          <h2>De una lista de datos a una lectura clínica accionable.</h2>
+          <figure class="quote-card">
+            <blockquote>
+              El nuevo informe AMBIOTA está pensado para que el profesional pueda leer antes, priorizar mejor y traducir los resultados a decisiones clínicas con más criterio.
+            </blockquote>
+            <figcaption class="quote-author">
+              <span class="author-avatar" aria-hidden="true">
+                <img src="assets/speakers/joel-lopez.jpg" alt="">
+              </span>
+              <span>
+                <strong>Joel López</strong>
+                <span>Equipo clínico AMBIOTA</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <b>01</b>
+            <h3>Visión funcional del resultado</h3>
+            <p>Más allá de la taxonomía: bloques funcionales, señales prioritarias y contexto clínico para no perderse entre datos.</p>
+          </article>
+          <article class="feature">
+            <b>02</b>
+            <h3>Síntesis asistida por IA</h3>
+            <p>Una capa de apoyo para resumir hallazgos, ordenar hipótesis y facilitar la interpretación profesional.</p>
+          </article>
+          <article class="feature">
+            <b>03</b>
+            <h3>Casos reales y uso en consulta</h3>
+            <p>Veremos cómo usar el informe con pacientes reales: qué mirar primero, qué señales cruzar y cómo comunicarlo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" aria-label="Dudas frecuentes sobre el webinar">
+      <div class="shell doubt-grid">
+        <div>
+          <p class="eyebrow">Si te lo estás preguntando</p>
+          <h2>Este webinar es para aclarar lo que normalmente queda abierto.</h2>
+          <p class="lead">
+            Si ya trabajas con microbiota, o estás valorando incorporarla a consulta, la sesión está pensada para convertir este informe en tu experto personal de microbiota con validación clínica.
+          </p>
+          <a class="btn btn-primary inline-cta" href="https://us06web.zoom.us/meeting/register/ma4yFuYFSDiTJqA5Mlq8cA">Reservar plaza</a>
+        </div>
+        <div class="doubt-list">
+          <article class="doubt-item">
+            <span>?</span>
+            <h3>“Tengo poco tiempo para interpretar informes largos.”</h3>
+            <p>Veremos cómo priorizar señales y qué mirar primero para no perderte entre datos.</p>
+          </article>
+          <article class="doubt-item">
+            <span>?</span>
+            <h3>“La IA me interesa, pero quiero criterio clínico.”</h3>
+            <p>La síntesis asistida no sustituye al profesional: ayuda a ordenar hallazgos e hipótesis.</p>
+          </article>
+          <article class="doubt-item">
+            <span>?</span>
+            <h3>“Necesito explicar mejor el resultado al paciente.”</h3>
+            <p>El nuevo informe está diseñado para traducir información compleja a una lectura más clara.</p>
+          </article>
+          <article class="doubt-item">
+            <span>?</span>
+            <h3>“Aún no estoy dentro de AMBIOTA Academy.”</h3>
+            <p>El webinar es una buena puerta de entrada para ver cómo trabaja la comunidad profesional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section proof-section" aria-label="Comunidad profesional AMBIOTA">
+      <div class="shell">
+        <div class="proof-grid">
+          <div>
+          <p class="eyebrow">Ya está en marcha</p>
+          <h2>No es solo una presentación: es parte de una forma nueva de trabajar la microbiota.</h2>
+          <figure class="proof-quote">
+            <blockquote>
+              Este nuevo informe ha nacido del gran equipo de AMBIOTA y ha evolucionado y crecido alrededor de preguntas reales, sesiones clínicas y profesionales que ya están aplicando la microbiota en consulta.
+            </blockquote>
+            <figcaption class="quote-author">
+              <span class="author-avatar" aria-hidden="true">
+                <img src="assets/speakers/elisabet-aulinas.jpg" alt="">
+              </span>
+              <span>
+                <strong>Elisabet Aulinas</strong>
+                <span>CEO y Directora · AMBIOTA</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+          <div class="proof-panel">
+            <div class="proof-main">
+              <strong>60+</strong>
+              <span>
+                profesionales de la salud ya forman parte de AMBIOTA Academy.
+                <small>Una comunidad clínica activa para aprender, compartir casos y aplicar mejor la microbiota en consulta.</small>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="community-voices" aria-label="Voces de profesionales de AMBIOTA Academy">
+          <figure class="voice-card">
+            <blockquote>“Estar dentro de la comunidad me ha dado más criterio y más seguridad para acompañar mejor a mis pacientes.”</blockquote>
+            <figcaption class="voice-author" data-initial="M">Mariola · Profesional AMBIOTA Academy</figcaption>
+          </figure>
+          <figure class="voice-card">
+            <blockquote>“Los casos y las sesiones compartidas me ayudan a trasladar la microbiota a decisiones más concretas en consulta.”</blockquote>
+            <figcaption class="voice-author" data-initial="N">Nombre por validar · AMBIOTA Academy</figcaption>
+          </figure>
+          <figure class="voice-card">
+            <blockquote>“Antes interpretar un informe de microbiota me generaba presión. Ahora, cuando aparece algo relacionado con el segundo cerebro, es una de mis prioridades clínicas.”</blockquote>
+            <figcaption class="voice-author" data-initial="N">Nombre por validar · AMBIOTA Academy</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="programa">
+      <div class="shell program">
+        <div>
+          <p class="eyebrow">Qué veremos</p>
+          <h2>Una presentación pensada para usar el informe, no solo verlo.</h2>
+          <figure class="quote-card">
+            <blockquote>
+              La sesión combina visión clínica, demostración del informe y ejemplos de lectura con casos para que salgas sabiendo dónde está el valor práctico.
+            </blockquote>
+            <figcaption class="quote-author">
+              <span class="author-avatar" aria-hidden="true">
+                <img src="assets/speakers/veronica-martinez.jpg" alt="">
+              </span>
+              <span>
+                <strong>Verónica Martínez</strong>
+                <span>Equipo clínico AMBIOTA</span>
+              </span>
+            </figcaption>
+          </figure>
+          <div class="speaker-grid">
+            <div class="speaker"><strong>Joel López</strong><span>Nuevo informe, lectura funcional e IA</span></div>
+            <div class="speaker"><strong>Verónica Martínez</strong><span>Casos clínicos y aplicación práctica</span></div>
+            <div class="speaker"><strong>Equipo AMBIOTA</strong><span>Academy, comunidad y próximos pasos</span></div>
+          </div>
+        </div>
+        <div class="agenda">
+          <div class="agenda-item">
+            <time>Bloque 1</time>
+            <h3>Por qué cambiamos el informe</h3>
+            <p>Qué necesitaba el profesional para aplicar mejor la microbiota en consulta.</p>
+          </div>
+          <div class="agenda-item">
+            <time>Bloque 2</time>
+            <h3>Demo del nuevo informe</h3>
+            <p>Bioindicadores, mapa funcional, síntesis clínica y navegación por las secciones clave.</p>
+          </div>
+          <div class="agenda-item">
+            <time>Bloque 3</time>
+            <h3>Casos clínicos</h3>
+            <p>Cómo priorizar señales y trasladar el resultado a una lectura útil para el paciente.</p>
+          </div>
+          <div class="agenda-item">
+            <time>Bloque 4</time>
+            <h3>Preguntas y próximos pasos</h3>
+            <p>Cómo acceder a Academy, revisar el informe demo y empezar a usarlo con pacientes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="community-note" aria-label="Comunidad AMBIOTA Academy">
+      <div class="shell community-grid">
+        <div>
+          <p class="community-kicker">Comunidad AMBIOTA</p>
+          <h2>Este informe también nace de la práctica compartida.</h2>
+        </div>
+        <div>
+          <p class="community-copy">
+            <strong>Este informe no nace solo del laboratorio: también nace de la comunidad profesional que lo utiliza.</strong> Las preguntas, comentarios y casos compartidos en AMBIOTA Academy están ayudando a mejorar cómo interpretamos la microbiota en consulta. Si todavía no formas parte, este es un buen momento para acercarte.
+          </p>
+          <div class="community-actions">
+            <a class="community-link" href="https://www.skool.com/ambiota-academy/about">Entrar en AMBIOTA Academy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="registro">
+      <div class="shell cta-grid">
+        <div>
+          <p class="eyebrow" style="color:#d9e8d1;">Plazas abiertas</p>
+          <h2>Reserva tu plaza para la presentación del nuevo informe AMBIOTA.</h2>
+          <p>Sesión online para profesionales de la salud. Al registrarte en Zoom recibirás automáticamente el enlace de acceso.</p>
+          <a class="official-link" href="https://www.ambiota.com/">Visitar la web oficial de AMBIOTA</a>
+        </div>
+        <a class="btn btn-primary" href="https://us06web.zoom.us/meeting/register/ma4yFuYFSDiTJqA5Mlq8cA">Reservar plaza en Zoom</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-cta">
+    <span>Webinar · Lunes 8 de junio · Zoom</span>
+    <a class="btn btn-primary" href="https://us06web.zoom.us/meeting/register/ma4yFuYFSDiTJqA5Mlq8cA">Reservar plaza</a>
+  </div>
+  <script>
+    (() => {
+      const visual = document.querySelector('.hero-visual');
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const hoverQuery = window.matchMedia('(hover: hover)');
+
+      if (!visual || motionQuery.matches || !hoverQuery.matches) return;
+
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+      let scrollTarget = 0;
+      let scrollCurrent = 0;
+      let rafId = null;
+
+      const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+      const updateScrollTarget = () => {
+        const rect = visual.getBoundingClientRect();
+        const viewport = window.innerHeight || document.documentElement.clientHeight;
+        const centerOffset = rect.top + rect.height / 2 - viewport / 2;
+        scrollTarget = clamp(centerOffset / viewport, -1, 1) * 44;
+      };
+
+      const animate = () => {
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
+        scrollCurrent += (scrollTarget - scrollCurrent) * 0.07;
+
+        visual.style.setProperty('--repel-x', `${currentX.toFixed(2)}px`);
+        visual.style.setProperty('--repel-y', `${currentY.toFixed(2)}px`);
+        visual.style.setProperty('--scroll-shift', `${scrollCurrent.toFixed(2)}px`);
+
+        rafId = requestAnimationFrame(animate);
+      };
+
+      const start = () => {
+        if (!rafId) rafId = requestAnimationFrame(animate);
+      };
+
+      visual.addEventListener('mousemove', (event) => {
+        const rect = visual.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        targetX = clamp(x * 34, -18, 18);
+        targetY = clamp(y * 28, -14, 14);
+        start();
+      });
+
+      visual.addEventListener('mouseleave', () => {
+        targetX = 0;
+        targetY = 0;
+        start();
+      });
+
+      window.addEventListener('scroll', () => {
+        updateScrollTarget();
+        start();
+      }, { passive: true });
+
+      window.addEventListener('resize', updateScrollTarget);
+      updateScrollTarget();
+      start();
+    })();
+  </script>
+</body>
+</html>
