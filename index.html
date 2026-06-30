@@ -4,6 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMBIOTA Academy — Programa de Especialización en Microbiota Intestinal</title>
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '790350053708990');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=790350053708990&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -2561,6 +2579,14 @@
   // ── GHL Webhook URL ────────────────────────────────────
   var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/OtSoCnSUJJBfnTX1qznq/webhook-trigger/fa0a379c-b52f-42ba-9e9f-e44dad18aa9b';
 
+  function trackMetaLead() {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: 'AMBIOTA Academy - Solicitud beca'
+      });
+    }
+  }
+
   // ── Form Submit → GHL ──────────────────────────────────
   function submitForm() {
     var firstName = document.getElementById('f-firstname').value.trim();
@@ -2622,12 +2648,14 @@
     })
     .then(function(res) {
       // GHL retorna 200 o similar → mostrem èxit
+      trackMetaLead();
       document.getElementById('modal-form-state').style.display = 'none';
       document.getElementById('modal-success-state').style.display = 'block';
     })
     .catch(function(err) {
       // Error de xarxa → mostrem missatge però assumim enviat
       // (CORS block = GHL ha rebut les dades igualment)
+      trackMetaLead();
       document.getElementById('modal-form-state').style.display = 'none';
       document.getElementById('modal-success-state').style.display = 'block';
     });
