@@ -16,6 +16,24 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '790350053708990');
   fbq('track', 'PageView');
+  window.ambiotaMetaPixelFallback = function(eventName, params) {
+    var query = new URLSearchParams({
+      id: '790350053708990',
+      ev: eventName,
+      dl: window.location.href,
+      rl: document.referrer || '',
+      if: 'false',
+      ts: Date.now().toString()
+    });
+    if (params && params.content_name) query.set('cd[content_name]', params.content_name);
+    var img = new Image();
+    img.src = 'https://www.facebook.com/tr/?' + query.toString();
+  };
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      window.ambiotaMetaPixelFallback('PageView');
+    }, 1000);
+  });
 </script>
 <noscript>
   <img height="1" width="1" style="display:none"
@@ -2580,10 +2598,14 @@
   var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/OtSoCnSUJJBfnTX1qznq/webhook-trigger/fa0a379c-b52f-42ba-9e9f-e44dad18aa9b';
 
   function trackMetaLead() {
+    var params = {
+      content_name: 'AMBIOTA Academy - Solicitud beca'
+    };
     if (typeof fbq === 'function') {
-      fbq('track', 'Lead', {
-        content_name: 'AMBIOTA Academy - Solicitud beca'
-      });
+      fbq('track', 'Lead', params);
+    }
+    if (typeof window.ambiotaMetaPixelFallback === 'function') {
+      window.ambiotaMetaPixelFallback('Lead', params);
     }
   }
 
