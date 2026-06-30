@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webinar AMBIOTA con Xevi Verdaguer | Microbiota y salud femenina</title>
+  <meta name="description" content="Webinar para profesionales de la salud con Xevi Verdaguer sobre microbiota, endometriosis, fertilidad, SOP, estroboloma y salud femenina desde una mirada clínica.">
+  <meta property="og:title" content="Webinar AMBIOTA con Xevi Verdaguer">
+  <meta property="og:description" content="Dudas reales de consulta sobre microbiota y salud femenina, respondidas en directo con Xevi Verdaguer y AMBIOTA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.ambiotaacademy.com/Xevi_Verdaguer_NoBG.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230e2800'/%3E%3Ctext x='32' y='43' font-size='34' text-anchor='middle' fill='%23fffdf8' font-family='Georgia'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --soil: #0e2800;
+      --soil-2: #173706;
+      --ink: #171914;
+      --muted: #5d6558;
+      --paper: #fffdf8;
+      --chalk: #f7f5f0;
+      --mist: #eef3ea;
+      --line: rgba(14, 40, 0, .14);
+      --leaf: #6aa84f;
+      --amber: #c2913d;
+      --rose: #b56a72;
+      --blue: #335f77;
+      --radius: 8px;
+      --shadow: 0 28px 80px rgba(21, 23, 19, .16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--chalk);
+      color: var(--ink);
+      font-family: Inter, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      pointer-events: none;
+      opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 245, 240, .92);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      background: var(--soil);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 12px 32px rgba(14, 40, 0, .13);
+    }
+    .brand img { width: 154px; height: auto; }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 12px;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--soil); }
+    .nav-links a.btn-primary,
+    .nav-links a.btn-primary:hover { color: var(--paper); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn-primary {
+      background: var(--soil);
+      color: var(--paper);
+      box-shadow: 0 14px 34px rgba(14, 40, 0, .22);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(14, 40, 0, .28); }
+    .btn-ghost { color: var(--soil); border-color: var(--line); background: rgba(255,255,255,.56); }
+    .btn-ghost:hover { background: var(--paper); transform: translateY(-1px); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(14,40,0,.07) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(14,40,0,.05) 1px, transparent 1px),
+        var(--chalk);
+      background-size: 42px 42px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+      gap: 52px;
+      align-items: center;
+      padding: 80px 0 76px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--soil);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--leaf);
+      box-shadow: 0 0 0 6px rgba(106,168,79,.16);
+    }
+    h1 {
+      margin: 0 0 24px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(48px, 6.8vw, 86px);
+      line-height: .96;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+    h1 em { color: var(--soil); }
+    .hero-copy {
+      max-width: 620px;
+      margin: 0 0 28px;
+      color: #353b32;
+      font-size: 18px;
+      line-height: 1.72;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      max-width: 620px;
+    }
+    .meta-chip {
+      min-height: 80px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.68);
+    }
+    .meta-chip strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--soil);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .meta-chip span { color: var(--muted); font-size: 13px; line-height: 1.4; }
+
+    .speaker-stage {
+      position: relative;
+      min-height: 610px;
+      display: grid;
+      place-items: end center;
+      perspective: 1200px;
+    }
+    .speaker-card {
+      position: relative;
+      width: min(100%, 560px);
+      min-height: 540px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 72% 18%, rgba(181, 106, 114, .22), transparent 30%),
+        linear-gradient(145deg, #fffdf8, #edf4e7);
+      box-shadow: var(--shadow);
+    }
+    .speaker-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(14,40,0,.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(14,40,0,.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+    .speaker-img {
+      position: absolute;
+      right: -210px;
+      bottom: 0;
+      width: 720px;
+      max-width: none;
+      filter: drop-shadow(0 28px 50px rgba(14,40,0,.22));
+    }
+    .speaker-label {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      max-width: 280px;
+      padding: 18px;
+      border: 1px solid rgba(14,40,0,.14);
+      border-radius: 10px;
+      background: rgba(255,253,248,.86);
+      backdrop-filter: blur(14px);
+    }
+    .speaker-label span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .speaker-label strong {
+      display: block;
+      font-family: "Instrument Serif", Georgia, serif;
+      color: var(--soil);
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .speaker-label small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .academy-privilege {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      max-width: 360px;
+      padding: 18px;
+      border-radius: 10px;
+      background: var(--soil);
+      color: var(--paper);
+      box-shadow: 0 18px 44px rgba(14,40,0,.28);
+    }
+    .academy-privilege strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--paper);
+    }
+    .academy-privilege span {
+      color: rgba(255,253,248,.76);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .section { padding: 96px 0; }
+    .section.alt { background: var(--mist); border-block: 1px solid var(--line); }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(300px, .55fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+    h2 {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(36px, 4.4vw, 58px);
+      line-height: 1.04;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    h2 em { color: var(--soil); }
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.72;
+    }
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .topic-card,
+    .proof-card,
+    .question-card {
+      min-height: 250px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 12px 36px rgba(21, 23, 19, .06);
+    }
+    .topic-card .num {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      background: var(--soil);
+      color: var(--paper);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .topic-card h3,
+    .proof-card h3,
+    .question-card h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    .topic-card p,
+    .proof-card p,
+    .question-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .claim-row {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .claim-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      padding: 26px;
+      border: 1px solid rgba(14,40,0,.14);
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 92% 10%, rgba(194,145,61,.18), transparent 34%),
+        linear-gradient(135deg, var(--soil), #132f06);
+      color: var(--paper);
+      box-shadow: 0 22px 58px rgba(14, 40, 0, .18);
+    }
+    .claim-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -50px -70px auto;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(255,253,248,.16);
+      border-radius: 50%;
+    }
+    .claim-card h3 {
+      position: relative;
+      margin: 0 0 12px;
+      max-width: 640px;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.04;
+      color: var(--paper);
+    }
+    .claim-card p {
+      position: relative;
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255,253,248,.74);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .mini-proof {
+      display: grid;
+      gap: 10px;
+    }
+    .mini-proof div {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.72);
+    }
+    .mini-proof strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--soil);
+      font-size: 13px;
+    }
+    .mini-proof span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .88fr) minmax(420px, 1.12fr);
+      gap: 46px;
+      align-items: center;
+    }
+    .agenda {
+      display: grid;
+      gap: 12px;
+    }
+    .agenda-row {
+      display: grid;
+      grid-template-columns: minmax(124px, .34fr) minmax(0, 1fr);
+      gap: 20px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+    .agenda-row strong {
+      color: var(--soil);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+    .agenda-row span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .report-frame {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f4f6ef;
+      box-shadow: var(--shadow);
+    }
+    .report-frame img { width: 100%; }
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .real-question {
+      position: relative;
+      min-height: 178px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 12px 36px rgba(21, 23, 19, .06);
+    }
+    .real-question::before {
+      content: "“";
+      position: absolute;
+      right: 18px;
+      top: 0;
+      color: rgba(106,168,79,.22);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 92px;
+      line-height: 1;
+    }
+    .real-question span {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(106,168,79,.12);
+      color: var(--soil);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .real-question h3 {
+      position: relative;
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.18;
+    }
+    .real-question p {
+      position: relative;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+    .objection-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .objection-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.74);
+    }
+    .objection-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--soil);
+      font-size: 15px;
+      line-height: 1.2;
+    }
+    .objection-card span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .form-zone {
+      position: relative;
+      padding: 96px 0 130px;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(194,145,61,.22), transparent 32%),
+        linear-gradient(135deg, var(--soil), #0a1e00);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(420px, 1fr);
+      gap: 44px;
+      align-items: start;
+    }
+    .form-zone h2,
+    .form-zone .eyebrow { color: var(--paper); }
+    .form-zone .eyebrow::before { background: var(--amber); box-shadow: 0 0 0 6px rgba(194,145,61,.18); }
+    .form-zone .lead { color: rgba(255,253,248,.76); }
+    .benefit-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .benefit {
+      padding: 16px;
+      border: 1px solid rgba(255,253,248,.14);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.07);
+    }
+    .benefit strong { display: block; margin-bottom: 4px; }
+    .benefit span { color: rgba(255,253,248,.7); font-size: 14px; line-height: 1.5; }
+
+    .registration-card {
+      padding: 24px;
+      border: 1px solid rgba(255,253,248,.22);
+      border-radius: 10px;
+      background: rgba(255,253,248,.96);
+      color: var(--ink);
+      box-shadow: 0 28px 70px rgba(0,0,0,.24);
+    }
+    .registration-card h3 {
+      margin: 0 0 6px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--soil);
+    }
+    .registration-card p { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+      color: #4a5245;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 12px 13px;
+      border: 1px solid rgba(14,40,0,.16);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+    textarea { min-height: 92px; resize: vertical; }
+    input:focus,
+    select:focus,
+    textarea:focus { border-color: rgba(14,40,0,.48); box-shadow: 0 0 0 4px rgba(14,40,0,.08); }
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 14px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .check input { width: 16px; height: 16px; min-height: auto; margin-top: 1px; flex: 0 0 auto; }
+    .form-message {
+      display: none;
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .form-message.ok { display: block; background: #ecf8e9; color: #1d4b10; border: 1px solid #cdebc5; }
+    .form-message.error { display: block; background: #fef2f2; color: #a21d1d; border: 1px solid #fecaca; }
+
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      z-index: 50;
+      transform: translateX(-50%);
+      width: min(620px, calc(100% - 28px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 10px 10px 18px;
+      border: 1px solid rgba(14,40,0,.18);
+      border-radius: 12px;
+      background: rgba(255,253,248,.92);
+      box-shadow: 0 20px 60px rgba(14,40,0,.18);
+      backdrop-filter: blur(16px);
+    }
+    .sticky-cta span { color: var(--soil); font-size: 13px; font-weight: 800; }
+
+    footer {
+      padding: 44px 0 96px;
+      background: #0a1e00;
+      color: rgba(255,253,248,.66);
+      font-size: 13px;
+    }
+    footer .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    footer a { color: var(--paper); }
+
+    @media (max-width: 980px) {
+      .nav-links a:not(.btn) { display: none; }
+      .hero-grid,
+      .section-head,
+      .split,
+      .form-grid { grid-template-columns: 1fr; }
+      .speaker-stage { min-height: 560px; }
+      .cards-3 { grid-template-columns: 1fr; }
+      .claim-row,
+      .question-grid,
+      .objection-grid { grid-template-columns: 1fr; }
+      .meta-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 28px, 1160px); }
+      .nav-inner { min-height: 64px; }
+      .brand img { width: 132px; }
+      .hero-grid { padding: 54px 0 60px; gap: 32px; }
+      h1 { font-size: 48px; }
+      .hero-copy { font-size: 16px; }
+      .speaker-stage { min-height: 500px; }
+      .speaker-card { min-height: 480px; }
+      .speaker-img { right: -300px; width: 660px; }
+      .speaker-label { left: 16px; top: 16px; max-width: 240px; }
+      .speaker-label strong { font-size: 28px; }
+      .academy-privilege { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+      .section { padding: 72px 0; }
+      .form-row { grid-template-columns: 1fr; }
+      .sticky-cta span { display: none; }
+      footer .shell { display: grid; }
+      .agenda-row { grid-template-columns: 1fr; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="https://ambiota.com" aria-label="AMBIOTA">
+        <img src="ambiota_logo_Web.png" alt="AMBIOTA">
+      </a>
+      <div class="nav-links">
+        <a href="#temas">Temas</a>
+        <a href="#resolveremos">Qué veremos</a>
+        <a href="#registro" class="btn btn-primary">Reservar plaza</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Webinar online · 1 de julio · 18:00 Madrid</p>
+          <h1>Microbiota y <em>salud femenina</em>, con Xevi Verdaguer.</h1>
+          <p class="hero-copy">
+            Una sesión para profesionales de la salud que quieren ordenar dudas reales de consulta: endometriosis, fertilidad, SOP, estroboloma, inflamación y lectura funcional de la microbiota sin caer en promesas simplistas.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#registro">Reservar plaza</a>
+            <a class="btn btn-ghost" href="#resolveremos">Qué resolveremos</a>
+          </div>
+          <div class="meta-row">
+            <div class="meta-chip"><strong>Formato</strong><span>Sesión online abierta con registro previo.</span></div>
+            <div class="meta-chip"><strong>Para quién</strong><span>Nutrición, PNIE, medicina, digestivo, salud femenina y deporte.</span></div>
+            <div class="meta-chip"><strong>En directo</strong><span>Preguntas reales de AMBIOTA Academy y profesionales invitados.</span></div>
+          </div>
+        </div>
+
+        <div class="speaker-stage" aria-label="Ponente principal">
+          <div class="speaker-card">
+            <img class="speaker-img" src="Xevi_Verdaguer_NoBG.png" alt="Xevi Verdaguer">
+            <div class="speaker-label">
+              <span>Ponente invitado</span>
+              <strong>Xevi Verdaguer</strong>
+              <small>Psiconeuroinmunólogo, nutricionista y fisioterapeuta</small>
+            </div>
+            <div class="academy-privilege">
+              <strong>Sesión abierta para profesionales.</strong>
+              <span>Xevi resolverá consultas en directo y aterrizaremos el tema a casos y dudas reales de consulta.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="temas">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Por qué esta sesión</p>
+            <h2>La salud femenina genera preguntas que no se resuelven con una lista de bacterias.</h2>
+          </div>
+          <p class="lead">
+            El objetivo es bajar la microbiota a consulta: entender qué puede aportar, qué límites tiene y cómo leer un informe metagenómico con prudencia clínica cuando aparecen síntomas hormonales, digestivos o inflamatorios.
+          </p>
+        </div>
+
+        <div class="cards-3">
+          <article class="topic-card">
+            <div class="num">01</div>
+            <h3>Del síntoma a la hipótesis</h3>
+            <p>Cómo pensar microbiota en endometriosis, SOP, fertilidad, lipedema o inflamación sin convertirlo todo en una única causa.</p>
+          </article>
+          <article class="topic-card">
+            <div class="num">02</div>
+            <h3>Estroboloma y metabolismo hormonal</h3>
+            <p>Qué conviene observar, qué puede indicar y cómo plantear mejoras desde dieta, hábitos y contexto clínico.</p>
+          </article>
+          <article class="topic-card">
+            <div class="num">03</div>
+            <h3>Informe útil para decidir mejor</h3>
+            <p>Qué marcadores, funciones y señales pueden ayudar a priorizar conversaciones con el paciente sin sobrediagnosticar.</p>
+          </article>
+        </div>
+
+        <div class="claim-row">
+          <article class="claim-card">
+            <h3>No venimos a vender una respuesta única. Venimos a ordenar criterio clínico.</h3>
+            <p>La microbiota puede abrir hipótesis relevantes en salud femenina, pero necesita contexto, lectura prudente y una forma clara de explicarlo al paciente. Esa es la conversación que queremos abrir con Xevi.</p>
+          </article>
+          <div class="mini-proof">
+            <div><strong>Preguntas reales</strong><span>Partiremos de dudas enviadas por profesionales dentro de AMBIOTA Academy.</span></div>
+            <div><strong>Lenguaje clínico</strong><span>Sin titulares fáciles: relación, criterio, límites e interpretación.</span></div>
+            <div><strong>Aplicación práctica</strong><span>Qué mirar primero, qué no sobredimensionar y cómo seguir después.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="resolveremos">
+      <div class="shell split">
+        <div>
+          <p class="eyebrow">Qué resolveremos</p>
+          <h2>Entrar con dudas reales. Salir con una lectura más clara.</h2>
+          <p class="lead">
+            La sesión está pensada para profesionales que trabajan con mujeres, síntomas digestivos, salud hormonal, nutrición clínica o medicina integrativa y quieren saber cómo encajar la microbiota sin caer en simplificaciones.
+          </p>
+        </div>
+        <div class="agenda">
+          <div class="agenda-row"><strong>Endometriosis</strong><span>Qué relación puede tener la microbiota con inflamación, dolor, digestión y contexto hormonal.</span></div>
+          <div class="agenda-row"><strong>SOP</strong><span>Cómo pensar microbiota en SOP metabólico o adrenal, especialmente en mujeres jóvenes con obesidad o anticonceptivos.</span></div>
+          <div class="agenda-row"><strong>Fertilidad</strong><span>Qué marcadores podrían ayudar a formular hipótesis en infertilidad inexplicada, siempre sin sustituir el criterio clínico.</span></div>
+          <div class="agenda-row"><strong>Estroboloma</strong><span>Qué se mira, qué puede sugerir y cómo plantear una intervención prudente desde nutrición y hábitos.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split">
+        <div>
+          <p class="eyebrow">Nuevo informe</p>
+          <h2>La sesión debe llevar al siguiente paso: <em>ver, entender y usar</em> AMBIOTA.</h2>
+          <p class="lead">
+            El webinar puede abrir conversación, pero la conversión ocurre cuando el profesional ve el informe, entiende cómo aplicarlo y percibe que AMBIOTA le acompaña en la interpretación.
+          </p>
+          <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="#registro">Reservar plaza</a>
+            <a class="btn btn-ghost" href="https://ambiota-report.vercel.app/demo" target="_blank" rel="noreferrer">Ver demo del informe</a>
+          </div>
+        </div>
+        <div class="report-frame">
+          <img src="assets/report-demo/mapa-funcional.png" alt="Vista del mapa funcional del informe AMBIOTA">
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Preguntas reales</p>
+            <h2>Estas dudas, y muchas más, las resolveremos en directo.</h2>
+          </div>
+          <p class="lead">Estas preguntas ya han aparecido dentro de AMBIOTA Academy. Las usaremos como punto de partida para que la sesión no se quede en teoría.</p>
+        </div>
+        <div class="question-grid">
+          <article class="real-question">
+            <span>Endometriosis</span>
+            <h3>¿Hay relación entre microbiota y endometriosis?</h3>
+            <p>Una de las dudas más repetidas: cómo separar asociación, inflamación, síntomas digestivos y criterios de intervención.</p>
+          </article>
+          <article class="real-question">
+            <span>Fertilidad</span>
+            <h3>En infertilidad inexplicada, ¿qué mirarías en un test de microbiota?</h3>
+            <p>Qué marcadores pueden orientar hipótesis y cómo evitar convertir el informe en una promesa de resultado.</p>
+          </article>
+          <article class="real-question">
+            <span>SOP</span>
+            <h3>SOP metabólico, obesidad, anticonceptivos y microbiota: ¿por dónde empezar?</h3>
+            <p>Cómo ordenar ejes metabólicos, digestivos y hormonales cuando el caso llega con mucha información mezclada.</p>
+          </article>
+          <article class="real-question">
+            <span>Estroboloma</span>
+            <h3>¿Qué indica, qué significa que esté alterado y cómo se puede mejorar?</h3>
+            <p>Una pregunta práctica para hablar de beta-glucuronidasa, metabolismo hormonal, dieta y contexto funcional.</p>
+          </article>
+        </div>
+        <div class="cards-3">
+          <article class="question-card"><h3>También hablaremos de lipedema, inflamación y metabolismo hormonal.</h3><p>Cómo plantear la relación con microbiota sin reducir un cuadro complejo a una sola explicación.</p></article>
+          <article class="question-card"><h3>Melasma, piel y microbiota: cuándo tiene sentido abrir la conversación.</h3><p>Cómo leer señales funcionales sin sobredimensionar hallazgos aislados ni prometer causalidades.</p></article>
+          <article class="question-card"><h3>Y todas las consultas que entren en directo.</h3><p>Xevi resolverá dudas durante la sesión y AMBIOTA aterrizará cómo seguir trabajando después.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Dudas antes de apuntarte</p>
+            <h2>Si trabajas con salud femenina, estas preguntas aparecen antes o después.</h2>
+          </div>
+          <p class="lead">No hace falta que ya uses AMBIOTA ni que tengas claro qué test pedir. La sesión va de entender mejor cómo piensa Xevi estas relaciones y cómo llevarlas a consulta con criterio.</p>
+        </div>
+        <div class="objection-grid">
+          <article class="objection-card"><strong>“¿Qué pinta la microbiota en endometriosis o SOP?”</strong><span>Xevi aterrizará relaciones posibles con inflamación, metabolismo y contexto hormonal sin simplificar el caso.</span></article>
+          <article class="objection-card"><strong>“¿El estroboloma es realmente útil en consulta?”</strong><span>Veremos qué se mira, qué puede orientar y qué conviene no sobredimensionar.</span></article>
+          <article class="objection-card"><strong>“¿Tiene sentido hablar de fertilidad desde microbiota intestinal?”</strong><span>La idea es formular mejores preguntas clínicas, no prometer resultados.</span></article>
+          <article class="objection-card"><strong>“¿Esto me servirá si no soy ginecólogo/a?”</strong><span>Sí: nutrición, PNIE, medicina integrativa, digestivo, deporte y salud femenina comparten muchas dudas de base.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-zone" id="registro">
+      <div class="shell form-grid">
+        <div>
+          <p class="eyebrow">Registro</p>
+          <h2>Reserva tu plaza para la sesión con Xevi Verdaguer.</h2>
+          <p class="lead">
+            La sesión será el 1 de julio a las 18:00 h, hora de Madrid. Al registrarte recibirás tu enlace individual de acceso y los recordatorios por email.
+          </p>
+          <div class="benefit-list">
+            <div class="benefit"><strong>Abierto a profesionales.</strong><span>Queremos que llegue al máximo número posible de perfiles sanitarios interesados.</span></div>
+            <div class="benefit"><strong>Consultas en directo.</strong><span>Xevi responderá dudas y AMBIOTA aterrizará cómo seguir trabajando después del webinar.</span></div>
+            <div class="benefit"><strong>Acceso ordenado.</strong><span>Recibirás tu enlace individual y los recordatorios para entrar sin depender de mensajes sueltos.</span></div>
+          </div>
+        </div>
+
+        <form class="registration-card" id="webinarForm">
+          <h3>Registro al webinar</h3>
+          <p>Completa los datos y te registraremos oficialmente. Recibirás tu enlace individual de acceso al webinar.</p>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="first_name">Nombre</label>
+              <input id="first_name" name="first_name" autocomplete="given-name" required>
+            </div>
+            <div class="field">
+              <label for="last_name">Apellidos</label>
+              <input id="last_name" name="last_name" autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email profesional</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="specialty">Especialidad</label>
+              <select id="specialty" name="specialty" required>
+                <option value="">Selecciona una opción</option>
+                <option>Medicina</option>
+                <option>Nutrición</option>
+                <option>PNIE / Medicina integrativa</option>
+                <option>Digestivo</option>
+                <option>Salud femenina</option>
+                <option>Fisioterapia / deporte</option>
+                <option>Otro perfil sanitario</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="interest">Qué te interesa más</label>
+              <select id="interest" name="interest">
+                <option>Salud femenina y microbiota</option>
+                <option>Interpretación clínica del informe</option>
+                <option>Aplicarlo en consulta</option>
+                <option>Conocer AMBIOTA como profesional</option>
+                <option>Resolver una duda concreta</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="question">Pregunta para la sesión</label>
+            <textarea id="question" name="question" placeholder="Ej.: ¿qué señales del informe pueden ser más útiles en consulta de salud femenina?"></textarea>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="privacy_acceptance" required>
+            <span>Acepto que AMBIOTA use estos datos para gestionar mi registro, enviarme información relacionada con el webinar y hacer seguimiento profesional. Puedo solicitar baja en cualquier momento.</span>
+          </label>
+
+          <button class="btn btn-primary" type="submit" id="submitBtn" style="width:100%;">Confirmar registro</button>
+          <div class="form-message" id="formMessage"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-cta">
+    <span>1 de julio · 18:00 Madrid · plazas con seguimiento profesional</span>
+    <a class="btn btn-primary" href="#registro">Reservar plaza</a>
+  </div>
+
+  <footer>
+    <div class="shell">
+      <span>AMBIOTA · Microbiota clínica con criterio profesional</span>
+      <span><a href="https://www.skool.com/ambiota-academy/about" target="_blank" rel="noreferrer">AMBIOTA Academy</a> · <a href="privacidad.html">Privacidad</a> · <a href="aviso-legal.html">Aviso legal</a></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('webinarForm');
+      var message = document.getElementById('formMessage');
+      var submitBtn = document.getElementById('submitBtn');
+
+      function getTrackingParams() {
+        var params = new URLSearchParams(window.location.search);
+        var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src'];
+        var tracking = keys.reduce(function (acc, key) {
+          acc[key] = params.get(key) || '';
+          return acc;
+        }, {});
+        tracking.source_key = tracking.src || '';
+        return tracking;
+      }
+
+      function showMessage(type, text, linkUrl) {
+        message.className = 'form-message ' + type;
+        message.textContent = text;
+        if (linkUrl) {
+          var link = document.createElement('a');
+          link.href = linkUrl;
+          link.target = '_blank';
+          link.rel = 'noreferrer';
+          link.textContent = 'Abrir mi enlace individual de Zoom';
+          link.style.display = 'inline-block';
+          link.style.marginTop = '10px';
+          link.style.fontWeight = '800';
+          message.appendChild(document.createElement('br'));
+          message.appendChild(link);
+        }
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+        message.className = 'form-message';
+        message.textContent = '';
+
+        var formData = new FormData(form);
+        var payload = Object.assign({
+          event_name: 'webinar_xevi_salud_femenina_20260701',
+          source_page: 'webinar-xevi-salut-femenina',
+          page_url: window.location.href,
+          registered_at: new Date().toISOString(),
+          tags: ['webinar-xevi-20260701-registrat', 'lead-professional', 'salut-femenina']
+        }, getTrackingParams());
+
+        formData.forEach(function (value, key) {
+          payload[key] = value;
+        });
+
+        fetch('/api/webinar-xevi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            return response.json().then(function (data) {
+              if (!response.ok) {
+                var error = new Error(data && data.message ? data.message : 'Error de registro');
+                error.status = response.status;
+                error.payload = data;
+                throw error;
+              }
+              return data;
+            });
+          })
+          .then(function (data) {
+            form.reset();
+            if (data.zoom_configured && data.zoom_join_url) {
+              showMessage('ok', 'Registro confirmado. Te enviaremos tu enlace individual por email junto con los recordatorios.', data.zoom_join_url);
+            } else {
+              showMessage('ok', 'Registro recibido. Falta configurar la conexión con Zoom para generar el enlace individual automáticamente.');
+            }
+          })
+          .catch(function (error) {
+            var text = error && error.status === 503
+              ? 'Estamos terminando de activar el registro automático. Inténtalo de nuevo en unos minutos.'
+              : 'No hemos podido enviar el formulario automáticamente. Escríbenos por WhatsApp o inténtalo de nuevo en unos minutos.';
+            showMessage('error', text);
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Confirmar registro';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
