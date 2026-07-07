@@ -171,6 +171,57 @@
       line-height: 1.72;
     }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .webinar-stamp {
+      position: relative;
+      display: inline-grid;
+      gap: 8px;
+      max-width: 560px;
+      margin: 0 0 26px;
+      padding: 18px 22px 18px 24px;
+      border: 2px solid rgba(181, 106, 114, .72);
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, rgba(255,253,248,.92), rgba(247,245,240,.82)),
+        repeating-linear-gradient(-8deg, rgba(181,106,114,.08) 0 2px, transparent 2px 12px);
+      color: #7a343c;
+      box-shadow: 0 18px 44px rgba(21, 23, 19, .1);
+      transform: rotate(-1.2deg);
+    }
+    .webinar-stamp::before,
+    .webinar-stamp::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px dashed rgba(181, 106, 114, .58);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+    .webinar-stamp::after {
+      inset: auto 18px -11px auto;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,253,248,.86);
+      border: 2px solid rgba(181, 106, 114, .52);
+      opacity: .72;
+    }
+    .webinar-stamp strong {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(20px, 2.7vw, 31px);
+      line-height: 1.04;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .webinar-stamp span {
+      position: relative;
+      z-index: 1;
+      max-width: 470px;
+      color: #5f3034;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
     .meta-row {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -585,6 +636,23 @@
       color: var(--soil);
     }
     .registration-card p { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
+    .community-card-actions { display: grid; gap: 10px; margin-top: 22px; }
+    .community-note-list {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .community-note-list li {
+      padding: 13px 14px;
+      border: 1px solid rgba(14,40,0,.12);
+      border-radius: var(--radius);
+      background: rgba(14,40,0,.04);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .field { margin-bottom: 14px; }
     .field label {
@@ -688,6 +756,7 @@
       .hero-grid { padding: 54px 0 60px; gap: 32px; }
       h1 { font-size: 48px; }
       .hero-copy { font-size: 16px; }
+      .webinar-stamp { padding: 16px 18px; transform: none; }
       .speaker-stage { min-height: 500px; }
       .speaker-card { min-height: 480px; }
       .speaker-img { right: -300px; width: 660px; }
@@ -711,7 +780,7 @@
       <div class="nav-links">
         <a href="#temas">Temas</a>
         <a href="#resolveremos">Qué veremos</a>
-        <a href="#registro" class="btn btn-primary">Reservar plaza</a>
+        <a href="https://www.skool.com/ambiota-academy/about" class="btn btn-primary" target="_blank" rel="noreferrer">Unirme a la comunidad</a>
       </div>
     </div>
   </nav>
@@ -721,12 +790,16 @@
       <div class="shell hero-grid">
         <div>
           <p class="eyebrow">Webinar online · 1 de julio · 18:00 Madrid</p>
+          <div class="webinar-stamp" aria-label="Aviso de webinar realizado">
+            <strong>Webinar ya realizado</strong>
+            <span>En breve anunciaremos el siguiente. Mientras, puedes unirte a la comunidad de AMBIOTA Academy.</span>
+          </div>
           <h1>Microbiota y <em>salud femenina</em>, con Xevi Verdaguer.</h1>
           <p class="hero-copy">
             Una sesión para profesionales de la salud que quieren ordenar dudas reales de consulta: endometriosis, fertilidad, SOP, estroboloma, inflamación y lectura funcional de la microbiota sin caer en promesas simplistas.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#registro">Reservar plaza</a>
+            <a class="btn btn-primary" href="https://www.skool.com/ambiota-academy/about" target="_blank" rel="noreferrer">Unirme a AMBIOTA Academy</a>
             <a class="btn btn-ghost" href="#resolveremos">Qué resolveremos</a>
           </div>
           <div class="meta-row">
@@ -824,7 +897,7 @@
             El webinar puede abrir conversación, pero la conversión ocurre cuando el profesional ve el informe, entiende cómo aplicarlo y percibe que AMBIOTA le acompaña en la interpretación.
           </p>
           <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a class="btn btn-primary" href="#registro">Reservar plaza</a>
+            <a class="btn btn-primary" href="https://www.skool.com/ambiota-academy/about" target="_blank" rel="noreferrer">Unirme a la comunidad</a>
             <a class="btn btn-ghost" href="https://ambiota-report.vercel.app/demo" target="_blank" rel="noreferrer">Ver demo del informe</a>
           </div>
         </div>
@@ -894,90 +967,38 @@
     <section class="form-zone" id="registro">
       <div class="shell form-grid">
         <div>
-          <p class="eyebrow">Registro</p>
-          <h2>Reserva tu plaza para la sesión con Xevi Verdaguer.</h2>
+          <p class="eyebrow">Siguiente paso</p>
+          <h2>El webinar ya se ha realizado. La conversación continúa dentro de AMBIOTA Academy.</h2>
           <p class="lead">
-            La sesión será el 1 de julio a las 18:00 h, hora de Madrid. Al registrarte recibirás tu enlace individual de acceso y los recordatorios por email.
+            En breve anunciaremos la próxima sesión. Mientras tanto, puedes entrar en la comunidad profesional para seguir aprendiendo, compartir dudas y recibir novedades de próximos webinars.
           </p>
           <div class="benefit-list">
-            <div class="benefit"><strong>Abierto a profesionales.</strong><span>Queremos que llegue al máximo número posible de perfiles sanitarios interesados.</span></div>
-            <div class="benefit"><strong>Consultas en directo.</strong><span>Xevi responderá dudas y AMBIOTA aterrizará cómo seguir trabajando después del webinar.</span></div>
-            <div class="benefit"><strong>Acceso ordenado.</strong><span>Recibirás tu enlace individual y los recordatorios para entrar sin depender de mensajes sueltos.</span></div>
+            <div class="benefit"><strong>Comunidad profesional.</strong><span>Un espacio para profesionales de la salud interesados en microbiota clínica.</span></div>
+            <div class="benefit"><strong>Próximas sesiones.</strong><span>Anunciaremos nuevos webinars y materiales dentro de AMBIOTA Academy.</span></div>
+            <div class="benefit"><strong>Aprendizaje aplicado.</strong><span>Casos, preguntas y conversación clínica para usar mejor la microbiota en consulta.</span></div>
           </div>
         </div>
 
-        <form class="registration-card" id="webinarForm">
-          <h3>Registro al webinar</h3>
-          <p>Completa los datos y te registraremos oficialmente. Recibirás tu enlace individual de acceso al webinar.</p>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="first_name">Nombre</label>
-              <input id="first_name" name="first_name" autocomplete="given-name" required>
-            </div>
-            <div class="field">
-              <label for="last_name">Apellidos</label>
-              <input id="last_name" name="last_name" autocomplete="family-name">
-            </div>
+        <div class="registration-card">
+          <h3>Únete a AMBIOTA Academy</h3>
+          <p>Entra en la comunidad para estar al día de las próximas sesiones y acceder al entorno profesional de AMBIOTA.</p>
+          <ul class="community-note-list">
+            <li>Acceso orientado a profesionales de la salud.</li>
+            <li>Actualizaciones sobre nuevos webinars y contenidos clínicos.</li>
+            <li>Comunidad para seguir aprendiendo sobre microbiota con criterio profesional.</li>
+          </ul>
+          <div class="community-card-actions">
+            <a class="btn btn-primary" href="https://www.skool.com/ambiota-academy/about" target="_blank" rel="noreferrer">Entrar en AMBIOTA Academy</a>
+            <a class="btn btn-ghost" href="https://ambiota-report.vercel.app/demo" target="_blank" rel="noreferrer">Ver demo del informe</a>
           </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="email">Email profesional</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="phone">Teléfono / WhatsApp</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="specialty">Especialidad</label>
-              <select id="specialty" name="specialty" required>
-                <option value="">Selecciona una opción</option>
-                <option>Medicina</option>
-                <option>Nutrición</option>
-                <option>PNIE / Medicina integrativa</option>
-                <option>Digestivo</option>
-                <option>Salud femenina</option>
-                <option>Fisioterapia / deporte</option>
-                <option>Otro perfil sanitario</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="interest">Qué te interesa más</label>
-              <select id="interest" name="interest">
-                <option>Salud femenina y microbiota</option>
-                <option>Interpretación clínica del informe</option>
-                <option>Aplicarlo en consulta</option>
-                <option>Conocer AMBIOTA como profesional</option>
-                <option>Resolver una duda concreta</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="question">Pregunta para la sesión</label>
-            <textarea id="question" name="question" placeholder="Ej.: ¿qué señales del informe pueden ser más útiles en consulta de salud femenina?"></textarea>
-          </div>
-
-          <label class="check">
-            <input type="checkbox" name="privacy_acceptance" required>
-            <span>Acepto que AMBIOTA use estos datos para gestionar mi registro, enviarme información relacionada con el webinar y hacer seguimiento profesional. Puedo solicitar baja en cualquier momento.</span>
-          </label>
-
-          <button class="btn btn-primary" type="submit" id="submitBtn" style="width:100%;">Confirmar registro</button>
-          <div class="form-message" id="formMessage"></div>
-        </form>
+        </div>
       </div>
     </section>
   </main>
 
   <div class="sticky-cta">
-    <span>1 de julio · 18:00 Madrid · plazas con seguimiento profesional</span>
-    <a class="btn btn-primary" href="#registro">Reservar plaza</a>
+    <span>Webinar ya realizado · próximos encuentros en AMBIOTA Academy</span>
+    <a class="btn btn-primary" href="https://www.skool.com/ambiota-academy/about" target="_blank" rel="noreferrer">Unirme</a>
   </div>
 
   <footer>
@@ -987,96 +1008,5 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var form = document.getElementById('webinarForm');
-      var message = document.getElementById('formMessage');
-      var submitBtn = document.getElementById('submitBtn');
-
-      function getTrackingParams() {
-        var params = new URLSearchParams(window.location.search);
-        var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src'];
-        var tracking = keys.reduce(function (acc, key) {
-          acc[key] = params.get(key) || '';
-          return acc;
-        }, {});
-        tracking.source_key = tracking.src || '';
-        return tracking;
-      }
-
-      function showMessage(type, text, linkUrl) {
-        message.className = 'form-message ' + type;
-        message.textContent = text;
-        if (linkUrl) {
-          var link = document.createElement('a');
-          link.href = linkUrl;
-          link.target = '_blank';
-          link.rel = 'noreferrer';
-          link.textContent = 'Abrir mi enlace individual de Zoom';
-          link.style.display = 'inline-block';
-          link.style.marginTop = '10px';
-          link.style.fontWeight = '800';
-          message.appendChild(document.createElement('br'));
-          message.appendChild(link);
-        }
-      }
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando...';
-        message.className = 'form-message';
-        message.textContent = '';
-
-        var formData = new FormData(form);
-        var payload = Object.assign({
-          event_name: 'webinar_xevi_salud_femenina_20260701',
-          source_page: 'webinar-xevi-salut-femenina',
-          page_url: window.location.href,
-          registered_at: new Date().toISOString(),
-          tags: ['webinar-xevi-20260701-registrat', 'lead-professional', 'salut-femenina']
-        }, getTrackingParams());
-
-        formData.forEach(function (value, key) {
-          payload[key] = value;
-        });
-
-        fetch('/api/webinar-xevi', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        })
-          .then(function (response) {
-            return response.json().then(function (data) {
-              if (!response.ok) {
-                var error = new Error(data && data.message ? data.message : 'Error de registro');
-                error.status = response.status;
-                error.payload = data;
-                throw error;
-              }
-              return data;
-            });
-          })
-          .then(function (data) {
-            form.reset();
-            if (data.zoom_configured && data.zoom_join_url) {
-              showMessage('ok', 'Registro confirmado. Te enviaremos tu enlace individual por email junto con los recordatorios.', data.zoom_join_url);
-            } else {
-              showMessage('ok', 'Registro recibido. Falta configurar la conexión con Zoom para generar el enlace individual automáticamente.');
-            }
-          })
-          .catch(function (error) {
-            var text = error && error.status === 503
-              ? 'Estamos terminando de activar el registro automático. Inténtalo de nuevo en unos minutos.'
-              : 'No hemos podido enviar el formulario automáticamente. Escríbenos por WhatsApp o inténtalo de nuevo en unos minutos.';
-            showMessage('error', text);
-          })
-          .finally(function () {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Confirmar registro';
-          });
-      });
-    })();
-  </script>
 </body>
 </html>
